@@ -141,7 +141,7 @@ In this lab
      mkdir -p /home/zdmuser/zdminstall
      mkdir /home/zdmuser/zdmhome
      mkdir /home/zdmuser/zdmbase
-     chown -R zdmuser:zdm /home/
+     chown -R zdmuser:zdm /home/zdmuser
      </copy>
      ```
 6. Download ZDM software.
