@@ -64,33 +64,45 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    ![Image showing search bar for Marketplace](./images/search-marketplace.png " ")
 
-4. Click on the listed **Oracle Database (Single Instance)** Image.
+4. Click on the listed **Oracle Database** Image.
 
    ![Image showing Oracle Database Marketplace Image](./images/oracle-database-image.png " ")
 
-5. Select an Oracle Database version which is latest ( There will be one on OL7 and one on OL8).
+5. Click on Launch Instance.
+  
+   ![Image showing Oracle Database Marketplace image with Launch Instance option](./images/db-image-launch-option.png " ")
+
+6. Select an Oracle Database version ( There will be multiple options including choice of OS).
     
-   Please choose database on Oracle Linux 7 since your Target DB system will be on Oracle Linux 7 for this lab.
+   Please choose database version on Oracle Linux 7 since your Target DB system will be on Oracle Linux 7 for this lab.
 
    ![Image showing available Marketplace Database Images](./images/db-image-options.png " ")
 
    Please make a note of the exact database version with Release Update since it will be required in next Lab.
 
-6. Ensure to select the correct compartment in your tenancy and then click on **Launch Instance**.
+7. Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
 
    ![Image showing selection for compartment](./images/compartment.png)
 
-7. On the **Create compute instance** page , Please update **Name** for compute as **ZDM-Source-DB**.
+8. On the **Create compute instance** page , Please update **Name** for compute as **ZDM-Source-DB**.
 
    ![Image showing Compute instance Name Prompt](./images/compute-name-prompt.png)
 
-   You can leave the Image and Shape as default.
+   You can leave the Image as it is.
 
-   ![Image showing compute mage and shape](./images/image-shape.png)
+   ![Image showing compute image ](./images/compute-image.png)
 
-8. Under **Networking** , please enter details as shown below.
+   You can also leave the shape as it is.
 
-   ![Image showing Network selection](./images/network-details.png " ")
+   ![Image showing compute shape](./images/compute-shape.png)
+
+9. Navigate to **Networking** by clicking **Next** two times. Select the VCN created earlier in the lab and also select the subnet.
+
+   ![Image showing Network selection](./images/network-details-1.png " ")
+
+   You can leave the remaining selection with the default values.
+
+   ![Image showing network selection details](./images/network-details-2.png)
 
 9. Under **Add SSH keys**.
 
@@ -98,7 +110,7 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    ![Image showing SSK key details](./images/ssh-key-upload.png " ")
 
-10. Click on **Create** to start the compute provisioning.
+10. Leave the Storage parameters to default and Click on **Create** to start the compute provisioning.
 
     ![Image showing final page for compute creation](./images/compute-creation.png " ")
 
