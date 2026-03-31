@@ -27,7 +27,7 @@ In this task you will create a new Virtual Cloud Network which will be used to h
  
 3. Click on **Start VCN Wizard**.
 
-   ![Image showing Start VCN Wizard](./images/start-vcn-wizard.png" ")
+   ![Image showing navigation to VCN](./images/start-vcn-wizard.png " ")
 
 4. In the new small window , Select the **Create VCN with Internet Connectivity** and then click on **Start VCN Wizard**.
 
@@ -131,6 +131,8 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
+* **Last Updated By/Date** - Amalraj Puthenchira, April 2026
+
+
 
