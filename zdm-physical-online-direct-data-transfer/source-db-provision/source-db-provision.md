@@ -104,11 +104,11 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 10. Under **Add SSH keys**.
 
-   Browse and provide the public ssh key generated in Lab 1.
+     Browse and provide the public ssh key generated in Lab 1.
 
-   ![Image showing SSK key details](./images/ssh-key-upload.png " ")
+     ![Image showing SSK key details](./images/ssh-key-upload.png " ")
 
-   Click Next to proceed to Storage.
+     Click Next to proceed to Storage.
 
 11. Leave the Storage parameters to default and Click on **Next** to bring up the review screen.
 
@@ -116,15 +116,15 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 12. Review the detail and click on **Create** to start the provisioning.
 
-   ![Image showing final page for compute creation](./images/compute-creation.png " ")
+    ![Image showing final page for compute creation](./images/compute-creation.png " ")
 
-11. In few minutes , compute instance with database will be provisioned and running as below.
+13. In few minutes , compute instance with database will be provisioned and running as below.
    
     ![Image showing provisioned compute instance](./images/prov-final.png)
 
-12. Take a note of the private IP address of the compute instance which will used to login to source database system.
+14. Take a note of the private IP address of the compute instance which will used to login to source database system.
 
-13. Collect the value of SYS password.
+15. Collect the value of SYS password.
 
     Login to the source database server using the Public IP and private ssh key.
 
