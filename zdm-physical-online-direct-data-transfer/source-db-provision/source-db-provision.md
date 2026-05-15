@@ -74,7 +74,7 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 6. Select an Oracle Database version ( There will be multiple options including choice of OS).
     
-   Please choose database version on Oracle Linux 7 since your Target DB system will be on Oracle Linux 7 for this lab.
+   Please choose database version on Oracle Linux 8 since your Target DB system will be on Oracle Linux 8 for this lab.
 
    ![Image showing available Marketplace Database Images](./images/db-image-options.png " ")
 
@@ -82,17 +82,15 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 7. Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
 
-   ![Image showing selection for compartment](./images/compartment.png)
+   ![Image showing selection for compartment](./images/instance-compartment.png)
 
-8. On the **Create compute instance** page , Please update **Name** for compute as **ZDM-Source-DB**.
+8. On the **Create compute instance** page , update **Name** for compute as **zdm-source-db** and leave the placement to default.
 
    ![Image showing Compute instance Name Prompt](./images/compute-name-prompt.png)
 
-   You can leave the Image as it is.
+   You can leave the Image  and shape to default .
 
    ![Image showing compute image ](./images/compute-image.png)
-
-   You can also leave the shape as it is.
 
    ![Image showing compute shape](./images/compute-shape.png)
 
@@ -104,21 +102,27 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    ![Image showing network selection details](./images/network-details-2.png)
 
-9. Under **Add SSH keys**.
+10. Under **Add SSH keys**.
 
    Browse and provide the public ssh key generated in Lab 1.
 
    ![Image showing SSK key details](./images/ssh-key-upload.png " ")
 
-10. Leave the Storage parameters to default and Click on **Create** to start the compute provisioning.
+   Click Next to proceed to Storage.
 
-    ![Image showing final page for compute creation](./images/compute-creation.png " ")
+11. Leave the Storage parameters to default and Click on **Next** to bring up the review screen.
+
+    ![Image showing storage parameters](./images/storage-parameters.png " ")
+
+12. Review the detail and click on **Create** to start the provisioning.
+
+   ![Image showing final page for compute creation](./images/compute-creation.png " ")
 
 11. In few minutes , compute instance with database will be provisioned and running as below.
    
     ![Image showing provisioned compute instance](./images/prov-final.png)
 
-12. Take a note of the Public IP address of the compute instance which will used to login to source database system.
+12. Take a note of the private IP address of the compute instance which will used to login to source database system.
 
 13. Collect the value of SYS password.
 
