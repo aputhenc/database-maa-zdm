@@ -35,21 +35,21 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 5. In new window , under **Basic information** specify VCN Name as **ZDM-VCN** and select appropritate compartment.
 
-   ![Image showing VCN Name prompt](./images/vcn-name-prompt.png)
+   ![Image showing VCN Name prompt](./images/lab2-t1-s5.png)
 
 6. Under **Configure VCN and Subnets** , enter details as shown in image below.
 
-   ![Image showing VCN and Subnet CIDR](./images/vcn-cidr-info.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6.png " ")
 
    Once details are entered , click on **Next**.
 
 7. On the next screen , click on **Create**.
 
-   ![Image showing VCN creation options selected](./images/vcn-summary.png " ")
+   ![Image showing VCN creation options selected](./images/lab2-t1-s7.png " ")
 
 8. This will take few seconds and you will receive a screen similar to the one below after completion.
 
-   ![Image showing VCN summary after creation](./images/vcn-creation-summary.png " ")
+   ![Image showing VCN summary after creation](./images/lab2-t1-s8.png " ")
 
 
 ## Task 2 : Provision Source Database
