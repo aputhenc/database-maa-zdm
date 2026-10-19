@@ -15,7 +15,7 @@ In this lab
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Create Virtual Cloud Network
+## Task 1 : Prepare Virtual Cloud Network
 
 In this task you will create a new Virtual Cloud Network which will be used to host source database compute , target database system and ZDM service host.
 
@@ -23,25 +23,37 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
 2. Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks**.
    
-   ![Image showing navigation to VCN](./images/navigate-to-vcn.png " ")
+   ![Image showing navigation to VCN](./images/lab2-t1-s1.png " ")
  
-3. Click on **Start VCN Wizard**.
+3. Click on **Create VCN**.
 
-   ![Image showing navigation to VCN](./images/start-vcn-wizard.png " ")
+   ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
 
-4. In the new small window , Select the **Create VCN with Internet Connectivity** and then click on **Start VCN Wizard**.
+4. In the new small window , enter Below details and select **Create VCN** to initiate VCN creation.
 
-   ![Image showing VCN options for creation](./images/vcn-create-options.png " ")
+   Name: zdm-vcn
+   
+   IPv4 CIDR Block: 10.20.17.0/24
 
-5. In new window , under **Basic information** specify VCN Name as **ZDM-VCN** and select appropritate compartment.
+   ![Image showing VCN options for creation](./images/lab2-t1-s3.png " ")
 
-   ![Image showing VCN Name prompt](./images/lab2-t1-s5.png)
+5. Navigate to Subnets under new VCN and select **Create Subnet** 
 
-6. Under **Configure VCN and Subnets** , enter details as shown in image below.
+   ![Image showing VCN Name prompt](./images/lab2-t1-s4.png)
 
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6.png " ")
+6. Provide below details on the new screen.
 
-   Once details are entered , click on **Next**.
+   Name: zdm-vcn-priv
+   
+   IPv4 CIDR Block: 10.20.17.0/24
+
+
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-a.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-b.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-c.png " ")
+
+
+   Once details are entered , click on **Create Subnet**.
 
 7. On the next screen , click on **Create**.
 
