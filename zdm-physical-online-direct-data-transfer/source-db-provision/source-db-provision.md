@@ -29,7 +29,7 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
 
-4. In the new small window , enter Below details and select **Create VCN** to initiate VCN creation.
+4. Enter below details on the new window and select **Create VCN** to initiate VCN creation.
 
    Name: zdm-vcn
    
@@ -37,7 +37,7 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    ![Image showing VCN options for creation](./images/lab2-t1-s3.png " ")
 
-5. Navigate to Subnets under new VCN and select **Create Subnet** 
+5. Navigate to **Subnets** under new VCN and select **Create Subnet** 
 
    ![Image showing VCN Name prompt](./images/lab2-t1-s4.png)
 
@@ -47,6 +47,8 @@ In this task you will create a new Virtual Cloud Network which will be used to h
    
    IPv4 CIDR Block: 10.20.17.0/24
 
+   Select Default for Route Table , DHCP options and Security list.
+
 
    ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-a.png " ")
    ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-b.png " ")
@@ -55,14 +57,19 @@ In this task you will create a new Virtual Cloud Network which will be used to h
 
    Once details are entered , click on **Create Subnet**.
 
-7. On the next screen , click on **Create**.
+7. Navigate to **Gateways** under new VCN and select **Create Service Gateway** under Service Gateway.
 
-   ![Image showing VCN creation options selected](./images/lab2-t1-s7.png " ")
+   ![Image showing VCN creation options selected](./images/lab2-t1-s6.png " ")
 
-8. This will take few seconds and you will receive a screen similar to the one below after completion.
+8. On **Create Service Gateway** screen , enter below details
 
-   ![Image showing VCN summary after creation](./images/lab2-t1-s8.png " ")
+   Name: zdm-vcn-sg
 
+   Services: All <Region ID> Services in Oracle Services Network
+
+   ![Image showing VCN summary after creation](./images/lab2-t1-s7.png " ")
+
+   Select **Create Service Gateway** to proceed with service gateway creation.
 
 ## Task 2 : Provision Source Database
 
