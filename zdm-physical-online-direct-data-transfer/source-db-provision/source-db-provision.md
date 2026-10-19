@@ -8,7 +8,7 @@ Estimated Time: 20 minutes
 
 In this lab
 
-* You will prepare a Virtual Cloud Network in Oracle Cloud Infrastructure for the lab.
+* You will configure a Virtual Cloud Network in Oracle Cloud Infrastructure.
 * You will provision source database using Oracle Marketplace image available in Oracle Cloud Infrastructure.
 
 ### Prerequisites
@@ -25,7 +25,7 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
    
    ![Image showing navigation to VCN](./images/lab2-t1-s1.png " ")
  
-3. Click on **Create VCN**.
+3. Select **Create VCN** to bring up Create VCN window.
 
    ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
 
@@ -36,6 +36,7 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
    IPv4 CIDR Block: 10.20.17.0/24
 
    ![Image showing VCN options for creation](./images/lab2-t1-s3.png " ")
+   
 
 5. Navigate to **Subnets** under new VCN and select **Create Subnet** 
 
