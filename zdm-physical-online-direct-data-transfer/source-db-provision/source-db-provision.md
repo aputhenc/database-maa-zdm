@@ -8,7 +8,7 @@ Estimated Time: 20 minutes
 
 In this lab
 
-* You will provision a Virtual Cloud Network in Oracle Cloud Infrastructure.
+* You will prepare a Virtual Cloud Network in Oracle Cloud Infrastructure for the lab.
 * You will provision source database using Oracle Marketplace image available in Oracle Cloud Infrastructure.
 
 ### Prerequisites
@@ -17,7 +17,7 @@ In this lab
 
 ## Task 1 : Prepare Virtual Cloud Network
 
-In this task you will create a new Virtual Cloud Network which will be used to host source database compute , target database system and ZDM service host.
+In this task you will create a new Virtual Cloud Network and prepare it which will be used to host source database compute , target database system and ZDM service host.
 
 1. Login to your Oracle Cloud Console.
 
@@ -155,7 +155,7 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2026
+* **Last Updated By/Date** - Amalraj Puthenchira, October 2026
 
 
 
