@@ -78,75 +78,80 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
 
 2. Click the **Navigation Menu** in the upper left, navigate to **Marketplace** and then select **All Applications**.
 
-   ![Image showing navigation to Marketplace](./images/navigate-to-marketplace.png " ")
+   ![Image showing navigation to Marketplace](./images/lab2-t2-s2.png " ")
 
 3. Type **Oracle Database** in search bar.
 
-   ![Image showing search bar for Marketplace](./images/search-marketplace.png " ")
+   ![Image showing search bar for Marketplace](./images/lab2-t2-s3.png " ")
 
 4. Click on the listed **Oracle Database** Image.
 
-   ![Image showing Oracle Database Marketplace Image](./images/oracle-database-image.png " ")
+   ![Image showing Oracle Database Marketplace Image](./images/lab2-t2-s4.png " ")
 
 5. Click on Launch Instance.
   
-   ![Image showing Oracle Database Marketplace image with Launch Instance option](./images/db-image-launch-option.png " ")
+   ![Image showing Oracle Database Marketplace image with Launch Instance option](./images/lab2-t2-s5.png " ")
 
-6. Select an Oracle Database version ( There will be multiple options including choice of OS).
+6. Select an Image (There will be multiple options including choice of OS).
     
-   Please choose database version on Oracle Linux 8 since your Target DB system will be on Oracle Linux 8 for this lab.
+   Please choose latest 19c database version on Oracle Linux 8 since your Target DB system will be on Oracle Linux 8 for this lab.
 
-   ![Image showing available Marketplace Database Images](./images/db-image-options.png " ")
+   ![Image showing available Marketplace Database Images](./images/lab2-t2-s6.png " ")
 
-   Please make a note of the exact database version with Release Update since it will be required in next Lab.
+   Please make a note of the exact OS and DB version with Release Update since it will be required in next Lab.
 
-7. Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
+   Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
 
-   ![Image showing selection for compartment](./images/instance-compartment.png)
+7. On the **Create compute instance** page , update **Name** as **zdm-source-db**.
 
-8. On the **Create compute instance** page , update **Name** for compute as **zdm-source-db** and leave the placement to default.
+   ![Image showing Compute instance Name Prompt](./images/lab2-t2-s7-a.png)
 
-   ![Image showing Compute instance Name Prompt](./images/compute-name-prompt.png)
+   You can leave the Placement , Image  and shape to default .
 
-   You can leave the Image  and shape to default .
+   ![Image showing compute image ](./images/lab2-t2-s7-b.png)
 
-   ![Image showing compute image ](./images/compute-image.png)
+   ![Image showing compute shape](./images/lab2-t2-s7-c.png)
 
-   ![Image showing compute shape](./images/compute-shape.png)
+   Proceed to Security by selecting **Next**
 
-9. Navigate to **Networking** by clicking **Next** two times. Select the VCN created earlier in the lab and also select the subnet.
+8. Leave all security parameters to default and Proceed to Networking by selecting **Next**
 
-   ![Image showing Network selection](./images/network-details-1.png " ")
+   ![Image showing Network selection](./images/lab2-t2-s8.png " ")
+
+9. On the Networking page , select the VCN created earlier in the lab and also select the subnet.
+
+   ![Image showing Network selection](./images/lab2-t2-s9-a.png " ")
 
    You can leave the remaining selection with the default values.
 
-   ![Image showing network selection details](./images/network-details-2.png)
+   ![Image showing network selection details](./images/lab2-t2-s9-b.png)
+   ![Image showing network selection details](./images/lab2-t2-s9-c.png)
 
 10. Under **Add SSH keys**.
 
      Browse and provide the public ssh key generated in Lab 1.
 
-     ![Image showing SSK key details](./images/ssh-key-upload.png " ")
+     ![Image showing SSK key details](./images/lab2-t2-s10.png " ")
 
      Click Next to proceed to Storage.
 
-11. Leave the Storage parameters to default and Click on **Next** to bring up the review screen.
+11. Leave the Storage parameters to default and Proceed to review by selecting **Next**.
 
-    ![Image showing storage parameters](./images/storage-parameters.png " ")
+    ![Image showing storage parameters](./images/lab2-t2-s11.png " ")
 
 12. Review the detail and click on **Create** to start the provisioning.
 
-    ![Image showing final page for compute creation](./images/compute-creation.png " ")
+    ![Image showing final page for compute creation](./images/lab2-t2-s12.png " ")
 
 13. In few minutes , compute instance with database will be provisioned and running as below.
    
-    ![Image showing provisioned compute instance](./images/prov-final.png)
+    ![Image showing provisioned compute instance](./images/lab2-t2-s13.png)
 
 14. Take a note of the private IP address of the compute instance which will used to login to source database system.
 
 15. Collect the value of SYS password.
 
-    Login to the source database server using the Public IP and private ssh key.
+    Login to the source database server using the private IP and private ssh key.
 
     Please refer the value of RACPASSWORD variable in file /u01/ocidb/params.ini for SYS,SYSTEM,PDBADMIN and SYSMAN password.
 
@@ -156,7 +161,7 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, October 2026
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
 
