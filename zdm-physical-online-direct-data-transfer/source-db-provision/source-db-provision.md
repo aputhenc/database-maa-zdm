@@ -58,7 +58,7 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
 
    Once details are entered , click on **Create Subnet**.
 
-7. Navigate to **Gateways** under new VCN and select **Create Service Gateway** under Service Gateway.
+7. Navigate to **Gateways** under new VCN and select **Create Service Gateway** under **Service Gateways**.
 
    ![Image showing VCN creation options selected](./images/lab2-t1-s7.png " ")
 
@@ -92,13 +92,15 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
   
    ![Image showing Oracle Database Marketplace image with Launch Instance option](./images/lab2-t2-s5.png " ")
 
-6. Select an Image (There will be multiple options including choice of OS).
+6. Select a Database image 
+
+   There will be multiple options including choice of OS.
     
    Please choose latest 19c database version on Oracle Linux 8 since your Target DB system will be on Oracle Linux 8 for this lab.
 
    ![Image showing available Marketplace Database Images](./images/lab2-t2-s6.png " ")
 
-   Please make a note of the exact OS and DB version with Release Update since it will be required in next Lab.
+   Please make a note of the exact DB version with Release Update since it will be required in next Lab.
 
    Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
 
@@ -139,15 +141,24 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
 
     ![Image showing storage parameters](./images/lab2-t2-s11.png " ")
 
-12. Review the detail and click on **Create** to start the provisioning.
+12. Review the details and select **Create** to start the provisioning.
 
     ![Image showing final page for compute creation](./images/lab2-t2-s12.png " ")
 
 13. In few minutes , compute instance with database will be provisioned and running as below.
    
-    ![Image showing provisioned compute instance](./images/lab2-t2-s13.png)
+    ![Image showing provisioned compute instance](./images/lab2-t2-s13.png " ")
 
-14. Take a note of the private IP address of the compute instance which will used to login to source database system.
+14. Note down the private IP of compute instance.
+
+     Click the **Navigation Menu** in the upper left, navigate to **Compute** and then select **Instances**.
+
+     ![Image showing navigation to compute instance](./images/lab2-t2-s14.png " ")
+
+     Make a note of the privte IP of the source database compute.
+
+     ![Image showing private IP of  compute instance](./images/lab2-t2-s15.png " ")
+
 
 15. Collect the value of SYS password.
 
