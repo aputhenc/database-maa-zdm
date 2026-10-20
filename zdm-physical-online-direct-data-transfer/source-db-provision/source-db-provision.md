@@ -23,11 +23,11 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
 
 2. Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks**.
    
-   ![Image showing navigation to VCN](./images/lab2-t1-s1.png " ")
+   ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
  
 3. Select **Create VCN** to bring up Create VCN window.
 
-   ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
+   ![Image showing navigation to VCN](./images/lab2-t1-s3.png " ")
 
 4. Enter below details on the new window and select **Create VCN** to initiate VCN creation.
 
@@ -35,12 +35,12 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
    
    IPv4 CIDR Block: 10.20.17.0/24
 
-   ![Image showing VCN options for creation](./images/lab2-t1-s3.png " ")
+   ![Image showing VCN options for creation](./images/lab2-t1-s4.png " ")
    
 
 5. Navigate to **Subnets** under new VCN and select **Create Subnet** 
 
-   ![Image showing VCN Name prompt](./images/lab2-t1-s4.png)
+   ![Image showing VCN Name prompt](./images/lab2-t1-s5.png)
 
 6. Provide below details on the new screen.
 
@@ -51,16 +51,16 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
    Select Default for Route Table , DHCP options and Security list.
 
 
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-a.png " ")
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-b.png " ")
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s5-c.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-a.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-b.png " ")
+   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-c.png " ")
 
 
    Once details are entered , click on **Create Subnet**.
 
 7. Navigate to **Gateways** under new VCN and select **Create Service Gateway** under Service Gateway.
 
-   ![Image showing VCN creation options selected](./images/lab2-t1-s6.png " ")
+   ![Image showing VCN creation options selected](./images/lab2-t1-s7.png " ")
 
 8. On **Create Service Gateway** screen , enter below details
 
@@ -68,7 +68,7 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
 
    Services: All <Region ID> Services in Oracle Services Network
 
-   ![Image showing VCN summary after creation](./images/lab2-t1-s7.png " ")
+   ![Image showing VCN summary after creation](./images/lab2-t1-s8.png " ")
 
    Select **Create Service Gateway** to proceed with service gateway creation.
 
