@@ -8,7 +8,7 @@ Estimated Time: 20 minutes
 
 In this lab
 
-* You will configure a Virtual Cloud Network in Oracle Cloud Infrastructure.
+* You will create a Virtual Cloud Network in Oracle Cloud Infrastructure.
 * You will create a Subnet in the Virtual Cloud Network.
 * You will provision source database using Oracle Marketplace image available in Oracle Cloud Infrastructure.
 
@@ -24,7 +24,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
 2. Create Virtual Cloud Network.
 
-   Select the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks**.
+   Select the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual cloud networks**.
    
    ![Image showing navigation to VCN](./images/lab2-t1-s2-a.png " ")
  
@@ -34,14 +34,14 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Enter below details on the **Create a Virtual Cloud Network** window and select **Create VCN** to initiate VCN creation.
 
-   Name: zdm-vcn
+   Name: **zdm-vcn**
    
-   IPv4 CIDR Block: 10.20.17.0/24
+   IPv4 CIDR Block: **10.20.17.0/24**
 
    ![Image showing VCN options for creation](./images/lab2-t1-s2-c.png " ")
    
 
-3. Create Subnet.
+3. Create subnet.
 
    Navigate to **Subnets** under new VCN and select **Create Subnet** 
 
@@ -49,9 +49,9 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Provide below details on the **Create Subnet** window
 
-   Name: zdm-vcn-priv
+   Name: **zdm-vcn-priv**
    
-   IPv4 CIDR Block: 10.20.17.0/24
+   IPv4 CIDR Block: **10.20.17.0/24**
 
    Select Default for Route Table , DHCP options and Security list.
 
@@ -61,7 +61,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
    ![Image showing Subnet details](./images/lab2-t1-s3-d.png " ")
 
 
-   Select **Create Subnet** once the required detailed are provided.
+   Select **Create Subnet** once the required details are provided.
 
 4. Create Servive Gateway 
 
@@ -69,11 +69,11 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing Create Service Gateway Option](./images/lab2-t1-s4-a.png " ")
 
-   On **Create Service Gateway** screen , enter below details
+   Enter below details On **Create Service Gateway** window.
 
    Name: **zdm-vcn-sg**
 
-   Services: All <Region ID> Services in Oracle Services Network
+   Services: All **RegionID** Services in Oracle Services Network
 
    ![Image showing Service Gateway details](./images/lab2-t1-s4-b.png " ")
 
@@ -87,18 +87,18 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Enter below details On the **Add Route Rules** window
    
-   Target Type: Service Gateway
+   Target Type: **Service Gateway**
 
-   Destinaton Service: All <Region ID> Services in Oracle Services Network.
+   Destinaton Service: **All Region ID Services in Oracle Services Network**.
 
    Compartnet: Select the same compartment as the Service Gateway created earlier.
 
-   Target Service Gateway: Select Service Gateway created in earlier step.
+   Target Service Gateway: Select **zdm-vcn-sg** created in earlier step.
 
      ![Image showing Service Gateway details](./images/lab2-t1-s5-b.png " ")
 
 
-   Select **Add Route Rules** to add routes.
+   Select **Add Route Rules** to add the route.
 
  
 
