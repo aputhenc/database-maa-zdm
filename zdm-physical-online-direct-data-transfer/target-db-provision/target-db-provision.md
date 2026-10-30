@@ -32,7 +32,7 @@ In this lab
 
    For this lab we have deplopyed source database on Oracle Linux 8.
 
-   You can use this lab with your source database , however ensure that the Operating System is Linux.
+   You can use this lab with your source database as well , however ensure that the Operating System is Linux.
 
 2. Establish connection to source database.
 
