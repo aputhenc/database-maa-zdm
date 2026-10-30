@@ -30,23 +30,9 @@ In this lab
 
 1. Check the Operating System version of the source database.
 
-   Login to the source database compute using the Public IP and privte SSH key.
+   For this lab we have deplopyed source database on Oracle Linux 8.
 
-   Username to login : **opc** 
-
-   Execute the below command after logged in as **opc** user.
-   
-    ```text
-    <copy>
-    cat /etc/os-release
-    </copy>
-    ```
-   
-   Please use similar commands in case above command doesn't work for you ( in case you have a different source database platform than the one specified in Lab 2).
-
-   You will get an output similar to the one below.
-
-   ![Image showing output of command to check OS version ](./images/os-version.png)
+   You can use this lab with your source database , however ensure that the Operating System is Linux.
 
 2. Establish connection to source database.
 
@@ -131,117 +117,106 @@ In this lab
 
 1. Navigate to Oracle Base Database.
 
-   Click the **Navigation Menu** in the upper left, navigate to **Oracle Database** and then select **Oracle Base Database (VM,BM)**.
+   Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database** and then select **Oracle Base Database Service**.
 
-   ![Image showing navigation to Oracle Base Database](./images/navigate-to-database.png)
+   ![Image showing navigation to Oracle Base Database](./images/lab3-t2-s1.png)
 
-2. Click on **Database software images**.
+2. Select **Software images** on the left hand side of new screen.
 
-   Select the appropriate compartment and then click on **Database software images** under **Resources**.
+   Select the appropriate compartment and then click on **Create software image** under **Software Images**.
 
-   ![Image showing compartment selection ](./images/compartment.png)
+   ![Image showing compartment selection ](./images/lab3-t2-s2.png)
 
-3. Click **Create Database software image**.
+3. Make below selections on the **Create software image** page.
 
-   Enter Display name as **DBImage-Source-DB** as below.
+   Image Type: Database Software image
 
-   ![Image showing Database Software Image Name ](./images/database-image-name.png)
+   Display name: **DBImage-19c**
 
-4. Configure database software image.
+   Compartment: Compartment of your choice
 
-   Select database version as **19c**   (same as the major version of your source database).
+      ![Image showing Database Software Image Name ](./images/lab3-t2-s3.png)
 
-   Select PSU as **19.16.0.0** ( If you have selected a different version for the source database in Lab 2, please provide that version here).
+4. Make changes as below to configure database software image.
 
-   Upload Oracle Home patch inventory output generated in Task 1 step 6 as below.
+   Database version: 19c (same as the major version of your source database).
 
-   ![Image showing database version selected for Image ](./images/db-version-info.png)
+   Database Version Release Update: **19.33.0.0.0** ( Please ensure that you are selecting a version which is same or higher version than source database).
 
-5. Create database software image.
+   Upload Oracle Home patch inventory output generated in earlier step (Task 1 step 6).
 
-   Click on **Create Database software image** to create DB Image.
+   ![Image showing database version selected for Image ](./images/lab3-t2-s4.png)
+
+   Select **Create** to proceed with image creation.
 
    Please wait for the completion of this task before proceeding to the next task.
-
+   
 ## Task 3 : Provision Target Database
 
-1. Navigate to Oracle Base Database in Oracle Cloud Console.
+1. Navigate to Oracle Base Database service.
 
-   Click the **Navigation Menu** in the upper left, navigate to **Oracle Database** and then select **Oracle Base Database (VM,BM)** as shown below.
+   Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database** and then select **Oracle Base Database service** as shown below.
 
-   ![Image showing navigation to Oracle Database](./images/navigate-to-database.png)
+   ![Image showing navigation to Oracle Database](./images/lab3-t3-s1.png)
 
 2. Click on  **Create DB System**.
     
-   ![Image showing Create DB system option](./images/createdb.png)
+   ![Image showing Create DB system option](./images/lab3-t3-s2.png)
 
-3. Provide name of the DB System and select compartment.
+3. Make below selections on the **Create DB System** page.
 
-   Provide DB System name as **zdm-target-db** and ensure you have selected correct compartment for the DB system.
+   DB System name: zdm-target-db (Ensure you have selected correct compartment for the DB system)
+
+   Availability Domain: Leave it to default
+
+   Oracle Database Software edition: Enterprise edition.
     
-   ![Image showing the updated DB system name](./images/db-system-name.png)
+   ![Image showing the updated DB system name](./images/lab3-t3-s3.png)
 
-4. Availability Domain and Shape selection.
+4. Selecting Shape.
 
-   Leave Availability Domain and Shape as to thier default values.
+   You can leave the Shape to the default one for this workshop.
 
-5. Modify the shape of the DB System.
+   You also modify the shape for workshop if there are cost considerations.
 
-   When you create the database from the console, ensure that your chosen shape can accommodate the source database, plus any future sizing requirements. A good guideline is to use a shape similar to or larger in size than source database.
+   For Production work loads , choose the shape that meets your sizign requirement.
 
-   For this lab we will use **AMD Flex** with 1 OCPU.
+    
+5. Configure storage.
 
-   Click on **Change Shape** as shown below.
+   Select **Change Storage** as shown below.
 
-   ![Image showing the option to change shape](./images/click-change-shape.png)
+   ![Image showing option to change storage](./images/lab3-t3-s5-a.png)
 
-   Ensure that AMD is selected in new screen and reduce **Number of OCPU per Node** to 1 as shown below.
+   Select **Oracle Grid Infrastructure** and **Balanced** option and click on **Save** as shown below.
 
-   ![Image showing the option to reduce the OCPU](./images/ocpu-selection.png)
+   ![Image showing option to change storage](./images/lab3-t3-s5-b.png)
 
-   Click on **Select a Shape** as shown below.
+6. Configure DB System.
 
-   ![Image showing the option to reduce the OCPU](./images/click-select-a-shape.png)
+    Leave the DB System configuration to default.
 
-   Your final selection will appear as below.
+   ![Image showing the DB System configuration](./images/lab3-t3-s6.png)
 
-   ![Image showing final selection of DB System Shape](./images/shape.png)
-
-6. Configure storage.
-
-   Click on Change Storage as shown below.
-
-   ![Image showing option to change storage](./images/click-change-storage.png)
-
-   Please select **Grid Infrastructure** and **Balanced** option and click on **Save changes** as shown below.
-
-   ![Image showing option to change storage](./images/storage-selection.png)
-
-7. Configure database edition.
-
-   Under **Configure the DB system** , ensure to select **Enterprise Edition** which is the same edition as our source database.
-
-   ![Image showing the selection for Database Edition](./images/edition.png)
-
-   Please note that Physical Online Migration uses Data Guard which requires Enterprise Edition Source and Target Databases.
-
-8. Upload SSH Keys.
+7. Upload SSH Keys.
    
-   Under **Add SSH keys** , upload the SSH Public key generated in Lab 1.
+   Under **SSH keys** , upload the SSH Public key generated in Lab 1.
 
-   ![Image showing option to upload SSH key](./images/ssh.png)
+   ![Image showing option to upload SSH key](./images/lab3-t3-s7.png)
 
-9. Select the appropriate License Type.
+8. Select the appropriate License Type.
 
    Select appropriate license type applicable for you.
 
-10. Specify the network information.
+    ![Image showing selectio of license type](./images/lab3-t3-s8.png)
 
-   Select **ZDM-VCN** as Virtual Cloud Network and **Public Subnet-ZDM-VCN** as Client subnet.
+9. Specify the network information.
+
+   Select **zdm-vcn** as Virtual Cloud Network and **zdm-vcn-priv** as Client subnet.
 
    Provide **zdm-target-db** as Hostname prefix.
 
-   ![Image showing the Network select for DB system](./images/network.png)
+   ![Image showing the Network select for DB system](./images/lab3-t3-s9.png)
 
 11. Click Next
 
