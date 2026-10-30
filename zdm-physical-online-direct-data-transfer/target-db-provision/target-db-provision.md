@@ -50,13 +50,13 @@ In this lab
 
    Type **. oraenv** and press **Enter**. 
     
-   Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID in case if it is different).
+   Press Enter when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID in case if it is different).
 
    Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
 
    Please find below snippet of the connection steps.
 
-   ![Image showing sqlplus connection to source cdb](./images/source-cdb-connection.png)
+   ![Image showing sqlplus connection to source cdb](./images/lab3-t1-s2.png)
 
 3. Check the database edition of the source database.
 
@@ -74,7 +74,7 @@ In this lab
    
    You will receive an output similar to the one below which will have the Database Edition.
 
-   ![Image showing Database Edition of Source database](./images/database-edition.png)
+   ![Image showing Database Edition of Source database](./images/lab3-t1-s3.png)
 
 4. Check database characterset.
    
@@ -82,6 +82,8 @@ In this lab
      
     ```console
     <copy>
+    col parameter for a40
+    col value for a30
     select PARAMETER,VALUE from nls_database_parameters where parameter like '%NLS%CHARACTERSET';
     </copy>
     ```
@@ -90,7 +92,7 @@ In this lab
 
    Sample output is shown below.
 
-   ![Image showing database and national character set in database](./images/database-characterset.png)
+   ![Image showing database and national character set in database](./images/lab3-t1-s4.png)
 
 5. Check encryption algorithm.
 
@@ -108,7 +110,7 @@ In this lab
 
    Below is sample trimmed output of the above command.
 
-   ![Image showing database and national character set in database](./images/source-db-lsinventory.png)
+   ![Image showing database and national character set in database](./images/lab3-t1-s6.png)
 
    Download the Lsinventory output file (location is shown in the output) to local desktop.
 
@@ -210,86 +212,94 @@ In this lab
 
     ![Image showing selectio of license type](./images/lab3-t3-s8.png)
 
-9. Specify the network information.
+9. Specify below for the network information.
 
-   Select **zdm-vcn** as Virtual Cloud Network and **zdm-vcn-priv** as Client subnet.
+   Virtual Cloud Network: **zdm-vcn**
+   
+   Client Subnet: **zdm-vcn-priv**
 
-   Provide **zdm-target-db** as Hostname prefix.
+   Hostname prefix: **zdm-target-db**
 
-   ![Image showing the Network select for DB system](./images/lab3-t3-s9.png)
+   IPv4 address assignment: Automatically assign IPv4 address from subnet
 
-11. Click Next
+    ![Image showing the Network select for DB system](./images/lab3-t3-s9-a.png)
 
-    Click **Next** to go to the next page.
+    ![Image showing the Network select for DB system](./images/lab3-t3-s9-b.png)
 
-12. Provide database name.
+   Leave Diagnostic collection selection to default.
 
-   If the target database is Exadata Database Service on Dedicated Infrastructure or Exadata Cloud at Customer, then the target database **DB\_NAME** should be the same as the source database **DB\_NAME**.
+    ![Image showing the Network select for DB system](./images/lab3-t3-s9-c.png)
 
-   If the target database is Oracle Base Database VM , then the target **DB\_NAME** can be the same as or different from the source database **DB\_NAME**.
+10. Provide database name.
 
-   Your target database is **Oracle Base Database VM** for this lab and you can keep the same **DB\_NAME** as source database for this lab.
+    Specify the the same **DB\_NAME** as source database.
 
-   Provide **Database name** as **ORCL** and **Database unique name suffix** as **T**.
+    Provide **Database name** as **ORCL** and **Database unique name suffix** as **T**.
 
-   ![Image showing the Database Name entered](./images/dbname.png)
+     ![Image showing the Database Name entered](./images/lab3-t3-s10.png)
 
-13. Select Database Image.
+11. Select Database Image.
 
-   Click on **Change Database Image** and select **Custom Database Software Images** as below.
+    Click on **Change Database Image** and select **Custom Database Software Images** as below.
 
-   ![Image showing selection of Database Software Image](./images/custom.png)
+    ![Image showing selection of Database Software Image](./images/lab3-t3-s11-a.png)
 
-   Select the appropriate compartment and select DB Image created in previous task as below.
+    Select the appropriate compartment and remove the **Database version 26ai** image filter seen below.
 
-   ![Image showing custom software images created earlier](./images/dbimage.png)
+    ![Image showing custom software images created earlier](./images/lab3-t3-s11-b.png)
 
-14. Provide SYS password.
+    select the custom image created in earlier steps as below.
 
-   Enter SYS password which is same as the SYS password of the source database.
+    ![Image showing custom software images created earlier](./images/lab3-t3-s11-c.png)
 
-   ![Image showing the provision to enter SYS password](./images/sys-password.png)
+    Below will be screen after the selection.
 
-15. Select database workload type.
+     ![Image showing custom software images created earlier](./images/lab3-t3-s11-d.png)
 
-   In this lab , leave it to the default.
+12. Provide Administrator credentials.
 
-16. Disable database backups.
+    Enter SYS password which is same as the SYS password of the source database.
 
-   Uncheck the **Enable automatic backups** box to disable database backups.
+     ![Image showing the provision to enter SYS password](./images/lab3-t3-s12.png)
 
-   You don't need automatic backups until you complete the database migration.
+     Leave the TDE wallet password choice to the default.
 
-   ![Image showing the option to disable database backups](./images/disable-backup.png)
+13. Disable database backups.
 
-17. Select database charactetset.
+    Uncheck the **Enable automatic backups** box to disable database backups.
 
-   Click on **show advanced** options.
+    You don't need automatic backups until you complete the database migration.
 
-   Ensure that you have selected same database and national characterset as the source database.
+    ![Image showing the option to disable database backups](./images/lab3-t3-s13.png)
 
-   In this lab source database has below Database and National Characterset.
+14. Select database charactetset.
 
-   Database Characterset : AL32UTF8
+    Expand **Advanced Options**
 
-   National Characterset : AL16UTF16
+    Ensure that you have selected same database and national characterset as the source database.
 
-   Sample output is shown below.
+    In this lab source database has below Database and National Characterset.
 
-   ![Image showing the database characterset selected](./images/db-characterset.png)
+    Database Characterset : AL32UTF8
 
-18. Start DB System provisioning.
+    National Characterset : AL16UTF16
 
-   Click on the **Create DB System** to initiate the DB system provisioning.
+    Sample output is shown below.
 
-   ![Image showing the option to start the provisioning](./images/prov-final.png)
+    ![Image showing the database characterset selected](./images/lab3-t3-s14.png)
 
-   This step is going to take up to 1 hour , however you can proceed to next lab while DB System is being provisioned.
+15. Start DB System provisioning.
+
+    Click on the **Create DB System** to initiate the DB system provisioning.
+
+    ![Image showing the option to start the provisioning](./images/lab3-t3-s15.png)
+
+    This step is going to take up to 1 hour , however you can proceed to next lab while DB System is being provisioned.
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
