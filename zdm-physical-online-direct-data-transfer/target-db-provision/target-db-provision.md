@@ -2,13 +2,13 @@
 
 ## Introduction
 
-You create a placeholder target database before the start of the migration to the target environment. 
+You need create a placeholder target database before the start of the migration to the target environment. 
 
 The placeholder target database gets overwritten during migration, but it retains the overall configuration.
 
 Please note as of Zero Downtime Migration Release 21.3 , only Grid Infrastructure-based database services are supported as targets. For example, an LVM-based instance or an instance created in compute node without Grid Infrastructure are not supported targets.
 
-You shouold use the control plane for the creation of a target placeholder database on Exadata Database Service on Dedicated Infrastructure and Exadata Cloud at Customer.
+You should use the control plane for the creation of a target placeholder database on Exadata Database Service on Dedicated Infrastructure and Exadata Cloud at Customer.
 
 Estimated Time: 30 minutes
 
@@ -20,7 +20,7 @@ In this lab
 
 * You will prepare a database software image for the target database.
 
-* You will provision an Oracle Base Database VM to use as the target database system.
+* You will provision an Oracle Base Database Server System to use as the target database system.
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ In this lab
 
    Please follow below steps to establish connection to source database using SQLPLUS.
 
-   Login to source database compute using Public IP and ssh key.
+   Login to source database compute using private IP and ssh key.
 
    Username to login : **opc** 
 
@@ -58,9 +58,9 @@ In this lab
 
    ![Image showing sqlplus connection to source cdb](./images/lab3-t1-s2.png)
 
-3. Check the database edition of the source database.
+3. Check the database edition.
 
-   The source database provisioned in this lab is an **Enterprise Edition** database since the Oracle Marketplace Image used for source database provisioning creates an Enterprise Edition database.
+   The source database provisioned earlier in lab 2 is an **Enterprise Edition** database since the Oracle Marketplace Image used for source database provisioning creates an Enterprise Edition database.
 
    In case you would like know the database edition for your on-premises database then refer the below steps.
 
@@ -72,7 +72,7 @@ In this lab
     </copy>
     ```
    
-   You will receive an output similar to the one below which will have the Database Edition.
+   You will receive an output similar to the one below which shows the Database Edition.
 
    ![Image showing Database Edition of Source database](./images/lab3-t1-s3.png)
 
@@ -131,7 +131,7 @@ In this lab
 
 3. Make below selections on the **Create software image** page.
 
-   Image Type: Database Software image
+   Image Type: **Database Software image**
 
    Display name: **DBImage-19c**
 
@@ -161,17 +161,19 @@ In this lab
 
    ![Image showing navigation to Oracle Database](./images/lab3-t3-s1.png)
 
-2. Click on  **Create DB System**.
+2. Select **Create DB System**.
     
    ![Image showing Create DB system option](./images/lab3-t3-s2.png)
 
 3. Make below selections on the **Create DB System** page.
 
-   DB System name: zdm-target-db (Ensure you have selected correct compartment for the DB system)
+   DB System name: **zdm-target-db** 
+   
+   Compartment: Ensure you have selected correct compartment for the DB system.
 
-   Availability Domain: Leave it to default
+   Availability Domain: Leave it to default.
 
-   Oracle Database Software edition: Enterprise edition.
+   Oracle Database Software edition: **Enterprise edition**.
     
    ![Image showing the updated DB system name](./images/lab3-t3-s3.png)
 
@@ -181,7 +183,7 @@ In this lab
 
    You also modify the shape for workshop if there are cost considerations.
 
-   For Production work loads , choose the shape that meets your sizign requirement.
+   For Production work loads , choose the shape that meets your sizing requirement.
 
     
 5. Configure storage.
@@ -214,6 +216,8 @@ In this lab
 
 9. Specify below for the network information.
 
+   Compartment: Compartment of VCN
+   
    Virtual Cloud Network: **zdm-vcn**
    
    Client Subnet: **zdm-vcn-priv**
@@ -226,7 +230,7 @@ In this lab
 
     ![Image showing the Network select for DB system](./images/lab3-t3-s9-b.png)
 
-   Leave Diagnostic collection selection to default.
+   Leave Diagnostic collection settings to default.
 
     ![Image showing the Network select for DB system](./images/lab3-t3-s9-c.png)
 
@@ -248,11 +252,11 @@ In this lab
 
     ![Image showing custom software images created earlier](./images/lab3-t3-s11-b.png)
 
-    select the custom image created in earlier steps as below.
+    Select the custom image created in task2 as below.
 
     ![Image showing custom software images created earlier](./images/lab3-t3-s11-c.png)
 
-    Below will be screen after the selection.
+    Below is the window after the selection.
 
      ![Image showing custom software images created earlier](./images/lab3-t3-s11-d.png)
 
@@ -290,7 +294,7 @@ In this lab
 
 15. Start DB System provisioning.
 
-    Click on the **Create DB System** to initiate the DB system provisioning.
+    Click on the **Create** to initiate the DB system provisioning.
 
     ![Image showing the option to start the provisioning](./images/lab3-t3-s15.png)
 
