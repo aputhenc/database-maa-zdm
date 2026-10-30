@@ -67,7 +67,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Navigate to **Gateways** under new VCN and select **Create Service Gateway** under **Service Gateways**.
 
-   ![Image showing Create Service Gateway Option](./images/lab2-t1-s4.png " ")
+   ![Image showing Create Service Gateway Option](./images/lab2-t1-s4-a.png " ")
 
    On **Create Service Gateway** screen , enter below details
 
@@ -75,15 +75,32 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Services: All <Region ID> Services in Oracle Services Network
 
-   ![Image showing Service Gateway details](./images/lab2-t1-s8.png " ")
+   ![Image showing Service Gateway details](./images/lab2-t1-s4-b.png " ")
 
    Select **Create Service Gateway** to proceed with service gateway creation.
 
-9. Configure Route
+5. Configure Route
 
-   Navigate to **Routing** under new VCN and select **Default Route Table for zdm-vcn** under **Service Gateways**.
+   Navigate to **Routing** under new VCN and select **Default Route Table for zdm-vcn**.
 
+     ![Image showing Service Gateway details](./images/lab2-t1-s5-a.png " ")
+
+   Enter below details On the **Add Route Rules** window
    
+   Target Type: Service Gateway
+
+   Destinaton Service: All <Region ID> Services in Oracle Services Network.
+
+   Compartnet: Select the same compartment as the Service Gateway created earlier.
+
+   Target Service Gateway: Select Service Gateway created in earlier step.
+
+     ![Image showing Service Gateway details](./images/lab2-t1-s5-b.png " ")
+
+
+   Select **Add Route Rules** to add routes.
+
+ 
 
 ## Task 2 : Provision Source Database
 
@@ -93,7 +110,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing navigation to Marketplace](./images/lab2-t2-s2.png " ")
 
-3. Type **Oracle Database** in search bar.
+3. Type **Oracle Database** in search bar and press Enter.
 
    ![Image showing search bar for Marketplace](./images/lab2-t2-s3.png " ")
 
@@ -127,13 +144,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing compute shape](./images/lab2-t2-s7-c.png)
 
-   Proceed to Security by selecting **Next**
+   Proceed to **Security** by selecting **Next**
 
-8. Leave all security parameters to default and Proceed to Networking by selecting **Next**
+8. Leave all **Security** parameters to default and proceed to **Networking** by selecting **Next**
 
    ![Image showing Network selection](./images/lab2-t2-s8.png " ")
 
-9. On the Networking page , select the VCN created earlier in the lab and also select the subnet.
+9. On the Networking page , select the VCN and subnet created earlier in the lab.
 
    ![Image showing Network selection](./images/lab2-t2-s9-a.png " ")
 
@@ -148,13 +165,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
      ![Image showing SSK key details](./images/lab2-t2-s10.png " ")
 
-     Click Next to proceed to Storage.
+     Select **Next** to proceed to Storage.
 
-11. Leave the Storage parameters to default and Proceed to review by selecting **Next**.
+11. Leave the **Storage** parameters to default and proceed to review by selecting **Next**.
 
     ![Image showing storage parameters](./images/lab2-t2-s11.png " ")
 
-12. Review the details and select **Create** to start the provisioning.
+12. Review the details and select **Create** to start the provisioning of source database.
 
     ![Image showing final page for compute creation](./images/lab2-t2-s12.png " ")
 
@@ -166,11 +183,11 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
      Click the **Navigation Menu** in the upper left, navigate to **Compute** and then select **Instances**.
 
-     ![Image showing navigation to compute instance](./images/lab2-t2-s14.png " ")
+     ![Image showing navigation to compute instance](./images/lab2-t2-s14-a.png " ")
 
      Make a note of the privte IP of the source database compute.
 
-     ![Image showing private IP of  compute instance](./images/lab2-t2-s15.png " ")
+     ![Image showing private IP of  compute instance](./images/lab2-t2-s14-b.png " ")
 
 
 15. Collect the value of SYS password.
