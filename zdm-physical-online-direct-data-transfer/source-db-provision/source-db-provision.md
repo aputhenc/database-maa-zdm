@@ -9,40 +9,45 @@ Estimated Time: 20 minutes
 In this lab
 
 * You will configure a Virtual Cloud Network in Oracle Cloud Infrastructure.
+* You will create a Subnet in the Virtual Cloud Network.
 * You will provision source database using Oracle Marketplace image available in Oracle Cloud Infrastructure.
 
 ### Prerequisites
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Confgure Virtual Cloud Network
+## Task 1 : Confgure Virtual Cloud Network and Subnet
 
-In this task you will create a new Virtual Cloud Network and configure it . You will use this later to host source database compute , target database system and ZDM service host.
+In this task you will create a new Virtual Cloud Network , create a private subnet inside the VCN and also configure it . You will use this later to host source database compute , target database system and ZDM service host.
 
 1. Login to your Oracle Cloud Console.
 
-2. Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks**.
+2. Create Virtual Cloud Network.
+
+   Select the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks**.
    
-   ![Image showing navigation to VCN](./images/lab2-t1-s2.png " ")
+   ![Image showing navigation to VCN](./images/lab2-t1-s2-a.png " ")
  
-3. Select **Create VCN** to bring up Create VCN window.
+   On the new window (as seen below) select **Create VCN** to bring up **Create a Virtual Cloud Network** window.
 
-   ![Image showing navigation to VCN](./images/lab2-t1-s3.png " ")
+   ![Image showing Create VCN option](./images/lab2-t1-s2-b.png " ")
 
-4. Enter below details on the new window and select **Create VCN** to initiate VCN creation.
+   Enter below details on the **Create a Virtual Cloud Network** window and select **Create VCN** to initiate VCN creation.
 
    Name: zdm-vcn
    
    IPv4 CIDR Block: 10.20.17.0/24
 
-   ![Image showing VCN options for creation](./images/lab2-t1-s4.png " ")
+   ![Image showing VCN options for creation](./images/lab2-t1-s2-c.png " ")
    
 
-5. Navigate to **Subnets** under new VCN and select **Create Subnet** 
+3. Create Subnet.
 
-   ![Image showing VCN Name prompt](./images/lab2-t1-s5.png)
+   Navigate to **Subnets** under new VCN and select **Create Subnet** 
 
-6. Provide below details on the new screen.
+   ![Image showing Create Subnet option](./images/lab2-t1-s3-a.png)
+
+   Provide below details on the **Create Subnet** window
 
    Name: zdm-vcn-priv
    
@@ -51,26 +56,34 @@ In this task you will create a new Virtual Cloud Network and configure it . You 
    Select Default for Route Table , DHCP options and Security list.
 
 
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-a.png " ")
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-b.png " ")
-   ![Image showing VCN and Subnet CIDR](./images/lab2-t1-s6-c.png " ")
+   ![Image showing Subnet details](./images/lab2-t1-s3-b.png " ")
+   ![Image showing Subnet details](./images/lab2-t1-s3-c.png " ")
+   ![Image showing Subnet details](./images/lab2-t1-s3-d.png " ")
 
 
-   Once details are entered , click on **Create Subnet**.
+   Select **Create Subnet** once the required detailed are provided.
 
-7. Navigate to **Gateways** under new VCN and select **Create Service Gateway** under **Service Gateways**.
+4. Create Servive Gateway 
 
-   ![Image showing VCN creation options selected](./images/lab2-t1-s7.png " ")
+   Navigate to **Gateways** under new VCN and select **Create Service Gateway** under **Service Gateways**.
 
-8. On **Create Service Gateway** screen , enter below details
+   ![Image showing Create Service Gateway Option](./images/lab2-t1-s4.png " ")
 
-   Name: zdm-vcn-sg
+   On **Create Service Gateway** screen , enter below details
+
+   Name: **zdm-vcn-sg**
 
    Services: All <Region ID> Services in Oracle Services Network
 
-   ![Image showing VCN summary after creation](./images/lab2-t1-s8.png " ")
+   ![Image showing Service Gateway details](./images/lab2-t1-s8.png " ")
 
    Select **Create Service Gateway** to proceed with service gateway creation.
+
+9. Configure Route
+
+   Navigate to **Routing** under new VCN and select **Default Route Table for zdm-vcn** under **Service Gateways**.
+
+   
 
 ## Task 2 : Provision Source Database
 
