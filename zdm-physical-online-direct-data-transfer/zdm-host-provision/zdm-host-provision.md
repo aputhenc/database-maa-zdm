@@ -17,59 +17,97 @@ In this lab
 
 ## Task 1 : Provision ZDM Compute Instance
 
-1. Navigate to compute instance in Oracle Console.
+1. Navigate to compute instance in OCI Console.
 
    Click the **Navigation Menu** in the upper left, navigate to **Compute** and then select **Instances**.
 
-   ![Image showing navigation to compute instance](./images/navigate-to-compute.png)
+   ![Image showing navigation to compute instance](./images/lab4-t1-s1.png)
 
-2. Select **Compartment**.
+2. Click on **Create Instance**.
 
-   Select the appropriate compartment on the left side of the console.
+   ![Image showing option to create compute instance](./images/lab4-t1-s2.png)
 
-   ![Image showing the selection of compartment](./images/compartment.png)
+3. Provide basic information.
 
-3. Click on **Create Instance**.
+   Name: **zdm-host** 
+   
+   Create in compartment: **select appropriate compartment**
 
-   ![Image showing option to create compute instance](./images/create-instance.png)
+   Placement: Leave it to default
 
-4. Enter **Name** for compute.
+   ![Image showing the name to be entered for compute](./images/lab4-t1-s3.png)
 
-   Enter **zdm-host** as name for compute and select appropriate **compartment** if it is not already done.
+  4. Image selection.
 
-   ![Image showing the name to be entered for compute](./images/compute-name.png)
+     Under **Image and Shape** , select **Change image**.
 
-5. Leave the **Placement** section as it is.
+     ![Image showing the option to change the image for compute](./images/lab4-t1-s4-a.png)
 
-6. Select correct image.
+     Select **Oracle Linux**
 
-   Under **Image and Shape** , click on **Change image**.
+     ![Image showing the OS image selected for compute](./images/lab4-t1-s4-b.png)
 
-   ![Image showing the option to change the image for compute](./images/os-image.png)
+     Select **Oracle Linux 8**
 
-   Select **Oracle Linux 7.9** and click on **Select Image**
+      ![Image showing the OS image selected for compute](./images/lab4-t1-s4-c.png)
 
-   ![Image showing the OS image selected for compute](./images/os-selected.png)
+      Finalize the image by selecting **Select image**
 
-7. Select VCN and Subnet.
+5. Shape selection.
 
-   Under **Networking** , Select **ZDM-VCN** as VCN and **Public Subnet-ZDM-VCN** as subnet.
+   You can either leave the **Shape** to default one or choose another one based on your requirement.
 
-   ![Image showing network selected](./images/network.png)
+   Below is the detault selection.
 
-8. Upload SSH Keys.
+     ![Image showing the OS image selected for compute](./images/lab4-t1-s5.png)
+
+   Select **Next** to proceed to **Security**.
+
+6. Security configuration.
+
+   Leave security configuration to default.
+
+    ![Image showing the OS image selected for compute](./images/lab4-t1-s6.png)
+
+   Proceed to **Networking** by selecting **Next**.
+
+7. Networking configuration.
+
+   Make below selections.
+
+   Primary network: **Select existing virtual cloud network**
+
+   Virtual Cloud Network: **zdm-vcn**
+
+   Subnet: **zdm-vcn-priv(regional)**
+   
+   ![Image showing network selected](./images/lab4-t1-s7-a.png)
+  
+   Leave the Private and Public IP assignment to default.
+
+   ![Image showing network selected](./images/lab4-t1-s7-b.png)
+
+   ![Image showing network selected](./images/lab4-t1-s7-c.png)
 
    Under **Add SSH keys** , upload the public ssh key generated in Lab 1.
 
-   ![Image showing option to upload ssh kesy](./images/ssh.png)
+   ![Image showing option to upload ssh kesy](./images/lab4-t1-s7-d.png)
 
-9. Specify custom boot volume.
+   Proceed to **Storage** by selecting **Next**.
 
-   Under **Boot volume** , select **Specify a custom boot volume size** and specify 150.
+8. Specify custom boot volume.
 
-   ![Image showing custom boot volume size](./images/boot.png)
+   Under **Boot volume** , Enable **Specify a custom boot volume size and performance setting** and specify **100** for **Boot volume size**.
+
+   ![Image showing custom boot volume size](./images/lab4-t1-s8.png)
+
+    Proceed to **Review** by selecting **Next**.
    
-10. Click on **Create** to start the provisioning of compute.
+9. Review configuration.
+
+   Review the details and proceed with compute creation by selecting **Create**.
+
+   ![Image showing custom boot volume size](./images/lab4-t1-s9.png)
 
    In less than a few minutes ZDM compute instance will be provisioned.
 
