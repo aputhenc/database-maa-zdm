@@ -113,58 +113,74 @@ In this lab
 
 ## Task 2 : Configure ZDM Service
 
-1. Login to ZDM host using the Public IP and ssh key file.
+1. Obtain private IP of ZDM host.
 
-   ![Image showing Public IP for ZDM host ](./images/ip.png)
+   Navigte to the **zdm-host** compute created in previous task to get the private IP.
 
-2. Expand the root FS.
+    ![Image showing private IP for ZDM host ](./images/lab4-t2-s1.png)
+
+2. Login to ZDM host using the private IP and ssh key file.
+
+   Use a command similar to below to access the zdm-host from cloud shell or from a just host which has access to **zdm-vcn**.
+
+    ```text
+     <copy>
+     ssh -i <private-key> opc@<private_ip>
+     </copy>
+     ```
+
+3. Perform latest updates.
+
+   It is recommended to perform update of all available packages.
+
+   Execute below command.
+
+   ```text
+     <copy>
+     sudo dnf update -y
+     </copy>
+     ```
+   
+   Below is sample output (truncated).
+
+    ![Image showing output of dnf update](./images/lab4-t2-s3.png)
+
+4. Expand the root FS.
 
    Execute below command as **opc** user and **press y and Enter** when asked.
 
    **sudo /usr/libexec/oci-growfs**
 
-   You will see an output similar to the one below.
+   You will see an output(truncated) similar to the one below.
 
-   ![Image showing command to expand root FS](./images/expand-fs.png)
+   ![Image showing command to expand root FS](./images/lab4-t2-s4.png)
 
-3. Check the existence of required packages for ZDM.
+5. Install required packages.
 
-   ZDM software requires below packages to be installed.
-
-   glibc-devel
-
-   expect
-
-   unzip
-
-   libaio
-
-   oraclelinux-developer-release-el7
-
-   Execute the below command to identify already installed packages.
+   Execute the below command to installe required packages for ZDM.
 
      ```text
      <copy>
-     yum list installed glibc-devel expect unzip libaio oraclelinux-developer-release-e17
+     sudo dnf install -y oraclelinux-developer-release-el8 \
+     ibnsl \
+     perl \
+     unzip \
+     glibc-devel \
+     expect \
+     libaio \
+     ncurses-compat-libs \
+     ncurses-devel \
+     numactl-libs \
+     openssl \
+     mlocate \
+     bind-utils
      </copy>
      ```
-     You will receive an output similar to the one below which shows glibc-devel, libaio , oraclelinux-developer-release-e17 and unzip are alraady installed.
+     You will receive an output similar to the one below. 
 
-     ![Image showing pre installed packages for ZDM ](./images/preinstalled-package.png)
+     ![Image showing pre installed packages for ZDM ](./images/lab4-t2-s5.png)
 
-4. Install missing packages.
-
-   We have seen that **expect** package is missing as per output of previous step.
-
-   Install the **expect** package using commands below.
-
-   **sudo yum install -y expect**
-
-   Sample output is shown below.
-
-   ![Image showing installation of expect package](./images/expect-install.png)
-
-5. Create user, group and directories required for ZDM.
+6. Create user, group and directories required for ZDM.
 
    Switch to **root** user using below command.
 
@@ -176,13 +192,12 @@ In this lab
      <copy>
      groupadd zdm
      useradd -g zdm zdmuser
-     mkdir -p /home/zdmuser/zdminstall
      mkdir /home/zdmuser/zdmhome
      mkdir /home/zdmuser/zdmbase
      chown -R zdmuser:zdm /home/zdmuser
      </copy>
      ```
-6. Download ZDM software.
+7. Download ZDM software.
 
    Download the ZDM software from below URL.
 
@@ -259,52 +274,18 @@ In this lab
 
    You need to ensure that incoming connection on port 22 is not blocked on Subnet level.
 
-   No action needs to be taken for this lab since port 22 is already open by default for the Public subnet configured in this lab.
+   No action needs to be taken for this lab since port 22 is already open by default for the private subnet configured in this lab.
 
    However, you may need to take care of opening port 22 if your source and target deployment is different compared to the one specified in this lab.
 
 2. Enable Source and Target hostname resolution from ZDM service host.
 
-   You can enable Source and Target hostname resolution by adding the correspnding Database System IP and FQDN Details to **/etc/hosts** file in ZDM service host.
+   ZDM requires to host name resolution for source and target database servers.
 
-   Please follow below steps.
+   This is typically accomplished by add the respective hostname and IP address of source and trget to the **/etc/hosts** file of ZDM service host.
 
-   a. Collect Source Database System details.
-
-   Click the **Navigation Menu** in the upper left, navigate to **Compute** and then select **Instances**.
-
-   ![Image showing navigation to compute instance](./images/navigate-to-compute.png)
-
-   Click on the **ZDM-Source-DB** compute host as shown below.
-
-   ![Image showing list of compute instances](./images/compute-list.png)
-
-   Note down the **Private IP** and **Internal FQDN** under Primary VNIC section.
-
-   ![Image showing private ip and  of source](./images/source-ip-fqdn.png)
-
-   b. Collect Target Database System details.
-
-   Click the **Navigation Menu** in the upper left, navigate to **Oracle Database** and then select **Oracle Base Database (VM,BM)**.
-
-   ![Image showing navigation to Oracle Base Database](./images/navigate-oracle-base.png)
-
-   Click on **zdm-target-db**.
-
-   Click on **Nodes** under **Resources** section and note down the **Private IP** and **FQDN**.
-
-   ![Image showing private ip and fqdn of target database](./images/target-ip-fqdn.png)
-   
-   c. Modify **/etc/hosts** file  in ZDM service host.
-
-   Open the /etc/hosts file for editing using **sudo vi /etc/hosts** command as opc user.
-   
-   Insert Source and Target database system private IP and FQDN details to **/etc/hosts** file and save it.
-
-   Sample output after editing is shown below.
-
-   ![Image showing contents of hosts file](./images/etc-host.png)
-
+   You don't have to do this for this lab since all the components are in same VCN.  
+  
 3. Copy the private SSH key to ZDM host.
 
    Copy the SSH private key generated in lab 1 to ZDM service host under **zdmuser** home (/home/zdmuser).
