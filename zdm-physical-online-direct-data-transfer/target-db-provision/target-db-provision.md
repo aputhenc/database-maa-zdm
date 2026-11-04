@@ -30,13 +30,13 @@ In this lab
 
 1. Check the Operating System version of the source database.
 
-   For this lab we have deplopyed source database on Oracle Linux 8.
+   For this lab you have deployed source database on Oracle Linux 8.
 
    You can use this lab with your source database as well , however ensure that the Operating System is Linux.
 
 2. Establish connection to source database.
 
-   Please follow below steps to establish connection to source database using SQLPLUS.
+   Please follow below steps to establish connection to source database using SQL*PLUS.
 
    Login to source database compute using private IP and ssh key.
 
@@ -179,13 +179,13 @@ In this lab
 
 4. Selecting Shape.
 
-   You can leave the Shape to the default one for this workshop.
+   You can either leave the **Shape** to the default one or modify it based on your requirement.
 
-   You also modify the shape for workshop if there are cost considerations.
+   We have left the **Shape** to default one for this workshop.
 
-   For Production work loads , choose the shape that meets your sizing requirement.
+   ![Image showing default shape](./images/lab3-t3-s4.png)
 
-    
+       
 5. Configure storage.
 
    Select **Change Storage** as shown below.
