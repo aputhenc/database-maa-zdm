@@ -50,11 +50,28 @@ In this task you will create a new Virtual Cloud Network , create a private subn
    Provide below details on the **Create Subnet** window
 
    Name: **zdm-vcn-priv**
-   
+
+   Create in Compartment: Compartmnet of your choice
+
+   Subnet Type: Regional
+
+   IP Type: **IPv4 CIDR block**
+
    IPv4 CIDR Block: **10.20.17.0/24**
 
-   Select Default for Route Table , DHCP options and Security list.
+   Route Table Compartment: Same compartment used for zdm-vcn
 
+   Route Table: **Default Route Table for zdm-vcn**
+
+   Subnet Access: **Private Subnet**
+   
+   DNS resolution: Leave it to default selection
+
+   DHCP Options: Leave it to default selection
+
+   Security List compartment: same compartment as zdm-vcn
+
+   Security List: **Default Security List for zdm-vcn**
 
    ![Image showing Subnet details](./images/lab2-t1-s3-b.png " ")
    ![Image showing Subnet details](./images/lab2-t1-s3-c.png " ")
@@ -73,6 +90,8 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Name: **zdm-vcn-sg**
 
+   Create in Compartment: Same compartment as zdm-vcn
+
    Services: All **RegionID** Services in Oracle Services Network
 
    ![Image showing Service Gateway details](./images/lab2-t1-s4-b.png " ")
@@ -83,19 +102,23 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Navigate to **Routing** under new VCN and select **Default Route Table for zdm-vcn**.
 
-     ![Image showing Service Gateway details](./images/lab2-t1-s5-a.png " ")
+     ![Image showing navigation to default route table](./images/lab2-t1-s5-a.png " ")
 
-   Enter below details On the **Add Route Rules** window
+   Navigate to **Route Rules** and select **Add Route Rules**
+
+     ![Image showing Service Gateway details](./images/lab2-t1-s5-b.png " ")
+   
+   Enter below details on the **Add Route Rules** window.
    
    Target Type: **Service Gateway**
 
    Destinaton Service: **All Region ID Services in Oracle Services Network**.
 
-   Compartnet: Select the same compartment as the Service Gateway created earlier.
+   Target Service Gatewat Compartnet: Select the same compartment as service gateway created in previous step.
 
    Target Service Gateway: Select **zdm-vcn-sg** created in earlier step.
 
-     ![Image showing Service Gateway details](./images/lab2-t1-s5-b.png " ")
+     ![Image showing Service Gateway details](./images/lab2-t1-s5-c.png " ")
 
 
    Select **Add Route Rules** to add the route.

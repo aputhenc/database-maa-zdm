@@ -135,15 +135,15 @@ In this lab
 
    Execute below command.
 
-   ```text
-     <copy>
-     sudo dnf update -y
-     </copy>
+     ```text
+      <copy>
+      sudo dnf update -y
+      </copy>
      ```
    
    Below is sample output (truncated).
 
-    ![Image showing output of dnf update](./images/lab4-t2-s3.png)
+   ![Image showing output of dnf update](./images/lab4-t2-s3.png)
 
 4. Expand the root FS.
 
