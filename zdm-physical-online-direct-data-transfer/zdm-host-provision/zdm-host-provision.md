@@ -279,7 +279,7 @@ In this lab
 
 1. Allow incoming connection on port 22 for Source and Target database subnet.
 
-   You have deployed source database , target database and ZDM service host into the same Public subnet for the purpose of this lab.
+   You have deployed source database , target database and ZDM service host into the same private subnet for the purpose of this lab.
 
    You need to ensure that incoming connection on port 22 is not blocked on Subnet level.
 
@@ -291,7 +291,7 @@ In this lab
 
    ZDM requires to host name resolution for source and target database servers.
 
-   This is typically accomplished by add the respective hostname and IP address of source and trget to the **/etc/hosts** file of ZDM service host.
+   This is typically accomplished by adding the respective hostname and IP address of source and target to the **/etc/hosts** file of ZDM service host.
 
    You don't have to do this for this lab since all the components are in same VCN.  
   
@@ -313,9 +313,15 @@ In this lab
 
    **ssh -i key\_file\_name opc@zdm-source-db**
 
+   Enter **yes** when asked with below question.
+   
+   **Are you sure you want to continue connecting?**
+
    You will be logged in to the Source DB system if the connectivity is successful as shown below.
 
-   ![Image showing successful ssh connectivity from zdm to source](./images/ssh-source-login.png)
+   ![Image showing successful ssh connectivity from zdm to source](./images/lab4-t3-s4-a.png)
+
+   Enter exit to come out of source db server.
 
    ii. Execute the below command to test the ssh connectivity from ZDM service host to Target database system.
 
@@ -323,14 +329,14 @@ In this lab
 
    You will be logged in to the Target DB system if the connectivity is successful as shown below.
 
-   ![Image showing successful ssh connectivity from zdm to target](./images/ssh-target-login.png)
+   ![Image showing successful ssh connectivity from zdm to target](./images/lab4-t3-s4-b.png)
 
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Author** - Amalraj Puthenchira, Data Modernisation Specialist, EMEA Technology Cloud Engineering
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
 
