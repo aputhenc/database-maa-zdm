@@ -162,7 +162,7 @@ In this lab
      ```text
      <copy>
      sudo dnf install -y oraclelinux-developer-release-el8 \
-     ibnsl \
+     libnsl \
      perl \
      unzip \
      glibc-devel \
