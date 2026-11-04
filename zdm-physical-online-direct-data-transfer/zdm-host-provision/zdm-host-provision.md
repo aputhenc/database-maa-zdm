@@ -217,26 +217,35 @@ In this lab
    
    Unzip the ZDM software under /tmp directory.
 
-   Note down the directory path of unzipped folder , it will be **/tmp/zdm21.x** for **ZDM 21.x** , Please note this is a generic placeholder name for ZDM software and make sure to use the latest version available.
+   Below is sample output.
+
+     ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s8.png)
+
+   Note down the directory path of unzipped folder , it will be **/tmp/zdm26.x** for **ZDM 26.x** , Please note this is a generic placeholder name for ZDM software and make sure to use the latest version available.
 
 9. Install ZDM software.
 
    Change directory to ZDM software unzipped location using below command.
 
-   cd /tmp/zdm21.x
+   cd /tmp/zdm26.x
    
    Execute the below command to install ZDM software.
    
      ```text
      <copy>
-     ./zdminstall.sh setup oraclehome=/home/zdmuser/zdmhome oraclebase=/home/zdmuser/zdmbase ziploc=/tmp/zdm21.x/zdm_home.zip -zdm
+     ./zdminstall.sh setup oraclehome=/home/zdmuser/zdmhome oraclebase=/home/zdmuser/zdmbase ziploc=/tmp/zdm26.x/zdm_home.zip
      </copy>
      ```
      This will take couple of minutes.
 
+     Below is sample output.
+     
+      ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s9-a.png)
+
+
      You will see output as below when ZDM service setup has been completed.
 
-     ![Image showing ZDM service setup completion](./images/zdmservice.png)
+     ![Image showing ZDM service setup completion](./images/lab4-t2-s9-b.png)
 
 10. Start ZDM service.
 
@@ -248,9 +257,9 @@ In this lab
 
     **./zdmservice start**
 
-    You will receive similar output as below once ZDM has been successfully started.
+    Below is sample output.
 
-    ![Image showing successful start of ZDM service](./images/zdm-service-start.png)
+    ![Image showing successful start of ZDM service](./images/lab4-t2-s10.png)
 
 11. Check ZDM service status.
 
@@ -260,7 +269,7 @@ In this lab
 
     Sample output is given below.
 
-    ![Image showing ZDM service status](./images/zdm-service-status.png)
+    ![Image showing ZDM service status](./images/lab4-t2-s11.png)
 
     You have successfuly installed ZDM software , please proceed to next task.
 
