@@ -459,26 +459,7 @@ In this lab
 
    ![Image showing output of tnsping from target to source database server ](./images/lab5-t1-s9-c-iii.png)
  
-10. Snapshot controlfile for RAC Database.
-
-   This step does not apply to the source database you have provisioned in this lab.
-
-   Follow the below steps for a source database which is RAC enabled.
-
-   If the source is an Oracle RAC database, and SNAPSHOT CONTROLFILE is not on a shared location, configure SNAPSHOT CONTROLFILE to point to a shared location on all Oracle RAC nodes to avoid the ORA-00245 error during backups to Oracle Object Store.
-
-   For example, if the database is deployed on ASM storage, use the below command to configure snapshot controlfile.
-
-     ```text
-     <copy>
-     $ rman target /  
-     RMAN> CONFIGURE SNAPSHOT CONTROLFILE NAME TO '+DATA/db_name/snapcf_db_name.f';
-     </copy>
-     ```
-   
-   If the database is deployed on an ACFS file system, specify the shared ACFS location in the above command.
-
-11. Configure RMAN to automatically backup control file.
+10. Configure RMAN to automatically backup control file.
 
    Ignore this step for the source database you have configured in this lab since it has automatic controlfile backup already configured.
 
@@ -493,7 +474,7 @@ In this lab
      ```
    Below is the sample output which shows AUTOBACKUP is ON.
 
-   ![Image showing controlfile autobackup status](./images/rman-control-autobkp.png)
+   ![Image showing controlfile autobackup status](./images/lab5-t1-s10-1.png)
 
    If RMAN is not already configured to automatically back up the control file and SPFILE, then set CONFIGURE CONTROLFILE AUTOBACKUP to ON and revert the setting back to OFF after migration is complete.
     
@@ -506,15 +487,15 @@ In this lab
      ```
    Below is sample output.
    
-   ![Image showing output of controlfile autobackup on command](./images/rman-controlfile-autobackup-configure.png)
+   ![Image showing output of controlfile autobackup on command](./images/lab5-t1-s10-2.png)
 
-12. Register database with srvctl.
+11. Register database with srvctl.
 
    Ignore this step for the source database provisioned in this lab since it is not using Grid Infrastructure.
 
    If the source database is deployed using Oracle Grid Infrastructure and the database is not registered using SRVCTL, then you must register the database before the migration.
    
-13. Maintain RMAN backup strategy.
+12. Maintain RMAN backup strategy.
 
    This step can be ignored for this lab since there is no existing RMAN backup strategy for the source database used in this lab.
 
@@ -529,7 +510,7 @@ In this lab
    If archive logs were to be deleted on the source database, and these archive logs are needed by Zero Downtime Migration to synchronize the target cloud database, then these files should be restored so that Zero Downtime Migration can continue the migration process.
 
    
-14. Ensure system time of the ZDM service host and source database server  are in sync with your Oracle Cloud Infrastructure target.
+13. Ensure system time of the ZDM service host and source database server  are in sync with your Oracle Cloud Infrastructure target.
 
     If the time on any of these systems varies beyond 6 minutes from the time on OCI, it should be adjusted. You can use ntp time check to synchronize the time if NTP is configured. If NTP is not configured, then it is recommended that you configure it. If configuring NTP is not an option, then you need to correct the time manually to ensure it is in sync with OCI time.
 
@@ -539,6 +520,6 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
