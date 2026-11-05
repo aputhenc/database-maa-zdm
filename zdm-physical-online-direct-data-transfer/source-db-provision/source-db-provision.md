@@ -35,6 +35,8 @@ In this task you will create a new Virtual Cloud Network , create a private subn
    Enter below details on the **Create a Virtual Cloud Network** window and select **Create VCN** to initiate VCN creation.
 
    Name: **zdm-vcn**
+
+   Create in Compartment: Compartment of your choice.
    
    IPv4 CIDR Block: **10.20.17.0/24**
 
@@ -51,7 +53,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Name: **zdm-vcn-priv**
 
-   Create in Compartment: Compartmnet of your choice
+   Create in Compartment: Same compartment as **zdm-vcn** VCN.
 
    Subnet Type: Regional
 
@@ -59,7 +61,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    IPv4 CIDR Block: **10.20.17.0/24**
 
-   Route Table Compartment: Same compartment used for zdm-vcn
+   Route Table Compartment: Same compartment as **zdm-vcn** VCN
 
    Route Table: **Default Route Table for zdm-vcn**
 
@@ -69,7 +71,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    DHCP Options: Leave it to default selection
 
-   Security List compartment: same compartment as zdm-vcn
+   Security List compartment: sSame compartment as **zdm-vcn** VCN
 
    Security List: **Default Security List for zdm-vcn**
 
@@ -90,7 +92,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Name: **zdm-vcn-sg**
 
-   Create in Compartment: Same compartment as zdm-vcn
+   Create in Compartment: Same compartment as **zdm-vcn**
 
    Services: All **RegionID** Services in Oracle Services Network
 
@@ -100,7 +102,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
 5. Configure Route
 
-   Navigate to **Routing** under new VCN and select **Default Route Table for zdm-vcn**.
+   Navigate to **Routing** under **zdm-vcn** and select **Default Route Table for zdm-vcn**.
 
      ![Image showing navigation to default route table](./images/lab2-t1-s5-a.png " ")
 
@@ -114,7 +116,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Destinaton Service: **All Region ID Services in Oracle Services Network**.
 
-   Target Service Gatewat Compartnet: Select the same compartment as service gateway created in previous step.
+   Target Service Gateway Compartnet: Same compartment as **zdm-vcn**
 
    Target Service Gateway: Select **zdm-vcn-sg** created in earlier step.
 
