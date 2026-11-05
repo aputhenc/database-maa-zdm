@@ -208,9 +208,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
      ![Image showing navigation to compute instance](./images/lab2-t2-s14-a.png " ")
 
-     Make a note of the privte IP of the source database compute.
+     Select **zdm-source-db**.
 
-     ![Image showing private IP of  compute instance](./images/lab2-t2-s14-b.png " ")
+     ![Image showing list of compute instances](./images/lab2-t2-s14-b.png " ")
+
+     Navigate to **Networking** and make note of private IP and Internal FQDN
+
+     ![Image showing private IP of  compute instance](./images/lab2-t2-s14-c.png " ")
 
 
 15. Collect the value of SYS password.

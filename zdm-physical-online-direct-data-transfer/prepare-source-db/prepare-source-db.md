@@ -415,17 +415,19 @@ In this lab
 
    Login to source database server.
 
-   Execute below command as **opc** user to remove restriction on iptables after replacing the **Target Database subnet CIDR block** which is same as Public Subnet CIDR for this Lab.
+   Execute below command as **opc** user to remove restriction on firewall after replacing the **CIDR of target database subnet** which is same as private subnet CIDR for this Lab.
 
      ```text
      <copy>
-     sudo iptables -I INPUT -p tcp -m state --state NEW -m tcp -s <target database subnet CIDR> --dport 1521 -m comment --comment "Required for access to DB , Do not remove or modify." -j ACCEPT
+      sudo firewall-cmd --permanent --zone=public \
+      --add-rich-rule='rule family="ipv4" source address="<CIDR of target database subnet>" port port="1521" protocol="tcp" accept'
+      sudo firewall-cmd --reload
      </copy>
      ```
          
    Sample output is shown below.
       
-   ![Image showing option to add Ingress rules ](./images/ip-tables-update.png)
+   ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-c-i.png)
 
    ii. Modify Target database server **/etc/hosts** file.
 
@@ -435,15 +437,15 @@ In this lab
    
    **sudo vi /etc/hosts**
 
-   Insert source database private IP and FQDN (collected in Lab 3 task 3 step 2) to /etc/hosts file and save it.
+   Insert source database private IP and FQDN (collected in Lab 2 task 2 step 14) to /etc/hosts file and save it.
 
    Below is sample contents of **/etc/hosts** file after modification.
 
-   ![Image showing option contents of target database etc/hosts file ](./images/target-db-etc-hosts.png)
+   ![Image showing option contents of target database etc/hosts file ](./images/lab5-t1-s9-c-ii.png)
 
    iii. Verify connectivity from target database to source database server.
 
-   Login to target database server using Public IP and ssh key file.
+   Login to target database server using private IP and ssh key file.
 
    Switch user to **oracle** using below command.
 
@@ -455,7 +457,7 @@ In this lab
 
    If the command output shows **OK(x msec)** as shown below , it means connectivity is success on the port 1521 from target database server to source database server.
 
-   ![Image showing output of tnsping from target to source database server ](./images/target-to-source-tnsping.png)
+   ![Image showing output of tnsping from target to source database server ](./images/lab5-t1-s9-c-iii.png)
  
 10. Snapshot controlfile for RAC Database.
 
