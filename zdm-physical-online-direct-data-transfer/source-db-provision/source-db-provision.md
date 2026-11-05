@@ -18,7 +18,7 @@ In this lab
 
 ## Task 1 : Confgure Virtual Cloud Network and Subnet
 
-In this task you will create a new Virtual Cloud Network , create a private subnet inside the VCN and also configure it . You will use this later to host source database compute , target database system and ZDM service host.
+In this task you will create a new Virtual Cloud Network , create a private subnet inside the VCN and also configure it . You will use this subnet later to host source database compute , target database system and ZDM service host.
 
 1. Login to your Oracle Cloud Console.
 
@@ -106,7 +106,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Navigate to **Route Rules** and select **Add Route Rules**
 
-     ![Image showing Service Gateway details](./images/lab2-t1-s5-b.png " ")
+     ![Image showing navigation to Add route rules option](./images/lab2-t1-s5-b.png " ")
    
    Enter below details on the **Add Route Rules** window.
    
@@ -118,7 +118,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Target Service Gateway: Select **zdm-vcn-sg** created in earlier step.
 
-     ![Image showing Service Gateway details](./images/lab2-t1-s5-c.png " ")
+     ![Image showing details of route rule](./images/lab2-t1-s5-c.png " ")
 
 
    Select **Add Route Rules** to add the route.
@@ -151,7 +151,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
     
    Please choose latest 19c database version on Oracle Linux 8 since your Target DB system will be on Oracle Linux 8 for this lab.
 
-   ![Image showing available Marketplace Database Images](./images/lab2-t2-s6.png " ")
+   ![Image showing Marketplace Database Images selection](./images/lab2-t2-s6.png " ")
 
    Please make a note of the exact DB version with Release Update since it will be required in next Lab.
 
@@ -159,7 +159,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
 7. On the **Create compute instance** page , update **Name** as **zdm-source-db**.
 
-   ![Image showing Compute instance Name Prompt](./images/lab2-t2-s7-a.png)
+   ![Image showing Compute instance basic information](./images/lab2-t2-s7-a.png)
 
    You can leave the Placement , Image  and shape to default .
 
@@ -171,11 +171,11 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
 8. Leave all **Security** parameters to default and proceed to **Networking** by selecting **Next**
 
-   ![Image showing Network selection](./images/lab2-t2-s8.png " ")
+   ![Image showing security configuration](./images/lab2-t2-s8.png " ")
 
 9. On the Networking page , select the VCN and subnet created earlier in the lab.
 
-   ![Image showing Network selection](./images/lab2-t2-s9-a.png " ")
+   ![Image showing Network configuration](./images/lab2-t2-s9-a.png " ")
 
    You can leave the remaining selection with the default values.
 
@@ -202,7 +202,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
    
     ![Image showing provisioned compute instance](./images/lab2-t2-s13.png " ")
 
-14. Note down the private IP of compute instance.
+14. Note down the private IP and internal FQDN of compute instance.
 
      Click the **Navigation Menu** in the upper left, navigate to **Compute** and then select **Instances**.
 
