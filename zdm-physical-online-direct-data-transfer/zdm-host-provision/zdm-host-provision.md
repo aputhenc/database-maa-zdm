@@ -313,7 +313,7 @@ In this lab
 
    **ssh -i key\_file\_name opc@zdm-source-db**
 
-   Enter **yes** when asked with below question.
+   Enter **yes** for below question.
    
    **Are you sure you want to continue connecting?**
 
@@ -321,11 +321,15 @@ In this lab
 
    ![Image showing successful ssh connectivity from zdm to source](./images/lab4-t3-s4-a.png)
 
-   Enter exit to come out of source db server.
+   Enter **exit** to come out of source db server.
 
    ii. Execute the below command to test the ssh connectivity from ZDM service host to Target database system.
 
    **ssh -i key\_file\_name opc@zdm-target-db**
+
+   Enter **yes** for below question.
+   
+   **Are you sure you want to continue connecting?**
 
    You will be logged in to the Target DB system if the connectivity is successful as shown below.
 

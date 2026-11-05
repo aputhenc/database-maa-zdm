@@ -24,7 +24,7 @@ In this lab
 
   Please follow below steps to establish connection to source database using SQLPLUS.
 
-  Login to source database server using Public IP and ssh key.
+  Login to source database server using private IP and ssh key.
 
   Switch user to **oracle** using below command.
 
@@ -34,17 +34,17 @@ In this lab
 
   Type **. oraenv** and press **Enter**. 
     
-  Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID if that is different from ORCL).
+  Press **Enter** when asked for **ORACLE\_SID**.
 
   Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
 
   Please find below snippet of the connection steps.
 
-  ![Image showing sqlplus connection to source cdb](./images/source-cdb-connection.png)
+  ![Image showing sqlplus connection to source cdb](./images/lab5-t1-s1.png)
 
 2. Establish connection to target database.
 
-  Login to target database server using Public IP and ssh key.
+  Login to target database server using private IP and ssh key.
 
   Switch user to **oracle** using below command.
 
@@ -54,13 +54,13 @@ In this lab
 
   Type **. oraenv** and press **Enter**. 
     
-  Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID if that is different from ORCL).
+  Press Enter when asked for **ORACLE\_SID**.
 
   Type **sqlplus "/as sysdba"**  and press **Enter** to connect to target database as SYS user.
 
   Please find below snippet of the connection steps.
 
-  ![Image showing sqlplus connection to target cdb](./images/target-cdb-conn.png)
+  ![Image showing sqlplus connection to target cdb](./images/lab5-t1-s2.png)
 
 3. Check the COMPATIBLE parameter on source database.
 
@@ -74,7 +74,7 @@ In this lab
 
   Below is the sample output.
 
-  ![Image showing output of compatible parameter check on source](./images/source-compatible.png)
+  ![Image showing output of compatible parameter check on source](./images/lab5-t1-s3.png)
 
 4. Check the COMPATIBLE parameter on target database.
 
@@ -89,11 +89,15 @@ In this lab
    
   Below is the sample output.
 
-  ![Image showing output of compatible parameter check on target](./images/target-compatible.png)
+  ![Image showing output of compatible parameter check on target](./images/lab5-t1-s4.png)
 
 5. Ensure COMPATIBLE parameter on source and target database is set to same value.
 
    Compare the source and target database COMPATIBLE parameter values collected in steps 3 and 4.
+
+   For this lab , you will see that COMPATIBLE parameter is set to same value on source and target and you can proceed to next step.
+
+   Follow below actions if you are using the lab with your specific source and target.
 
    Please proceed to the next step if the COMPATIBLE parameter on the source and target has the same value.
 
@@ -104,7 +108,7 @@ In this lab
    https://docs.oracle.com/en/database/oracle/oracle-database/21/upgrd/what-is-oracle-database-compatibility.html#GUID-26CB83FD-F2B3-4BD1-AF39-9C2DC90D698C
 
    Please note that changing compatible parameter can't be reversed unless you restore the entire database backup, so plan accordingly for your production source databases.
-
+   
 6. Ensure source database is using SPFILE.
 
    Please ignore this step if you have provisioned the source database as per the instructions in this lab.
@@ -123,7 +127,7 @@ In this lab
 
    Sample output with SPFILE in use is shown below.
 
-   ![Image showing output of spfile check](./images/spfile.png)
+   ![Image showing output of spfile check](./images/lab5-t1-s6.png)
 
    If SPFILE is not in use, then use the below link to configure SPFILE for your database.
 
@@ -133,13 +137,10 @@ In this lab
 
    The source database provisioned in this livelab is not running in ARCHIVELOG mode by default. 
    
-   However, source database must be running in ARCHIVELOG mode for this livelab. 
-
    Please follow below document and enable ARCHIVELOG mode for source database.
 
    https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-archived-redo-log-files.html#GUID-C12EA833-4717-430A-8919-5AEA747087B9
-
-
+   
 8. Configure TDE Wallet on Oracle Database 12c Release 2 and later.
 
    Please note down the below requirement in terms of TDE wallet.
@@ -160,7 +161,7 @@ In this lab
 
    Sample query output is shown below.
 
-   ![Image showing TDE status of source database](./images/source-tde-status.png)
+   ![Image showing TDE status of source database](./images/lab5-t1-s8.png)
 
    Please follow the below steps to enable TDE wallet for the source database provisioned in this lab.
 
@@ -176,13 +177,15 @@ In this lab
 
    Below is sample output of the contents of sqlnet.ora after the required modification.
 
-   ![Image showing contents of sqlnet.ora in source database](./images/source-sqlnet.png)
+   ![Image showing contents of sqlnet.ora in source database](./images/lab5-t1-s8-a.png)
 
    For an Oracle RAC instance, also set **ENCRYPTION\_WALLET\_LOCATION** in the second Oracle RAC node (Not applicable for the source database provisioned in this lab).
       
    b. Create and configure the keystore.
 
    Connect to source database (refer step 1 if required) for all below steps.
+
+   Please note that you should be connected to container database when your source is a CDB.
 
    i. Create the keystore.      
      
@@ -195,7 +198,7 @@ In this lab
       ```
    Below is sample output.
 
-   ![Image showing output of create keystore command](./images/source-create-keystore.png)
+   ![Image showing output of create keystore command](./images/lab5-t1-s8-b-i.png)
 
    ii. Open the keystore.
 
@@ -215,7 +218,7 @@ In this lab
      ```
    Below is sample output.
 
-   ![Image showing output of open keystore command](./images/source-open-keystore.png)
+   ![Image showing output of open keystore command](./images/lab5-t1-s8-b-ii.png)
 
    iii. Create and activate the master encryption key.
 
@@ -235,7 +238,7 @@ In this lab
      ```
    Below is sample output.
 
-   ![Image showing output of activate keystore command](./images/source-activate-keystore.png)
+   ![Image showing output of activate keystore command](./images/lab5-t1-s8-b-iii.png)
 
    iv. Query V$ENCRYPTION_WALLET to get the keystore status, keystore type, and keystore location.
 
@@ -249,7 +252,9 @@ In this lab
 
    If the query output shows STATUS as OPEN and WALLET_TYPE as PASSWORD, it means the configuration of the password-based keystore is complete at this stage.
 
-   ![Image showing status of password based keystore](images/tde-password.png)
+   Below is sample output.
+
+   ![Image showing status of password based keystore](images/lab5-t1-s8-b-iv.png)
 
    You will use an auto-login keystore in this lab which requires additional steps as mentioned below.
    
@@ -257,7 +262,7 @@ In this lab
    
    i. Create the auto-login keystore.
 
-   Execute below query after modifying keystore location (same as the keystore location specified in step b) and TDE password.
+   Execute below query after modifying keystore location (same as the keystore location specified in step b) and password.
 
      ```text
      <copy>
@@ -267,7 +272,7 @@ In this lab
 
    Below is sample output.
 
-   ![Image showing creation of auto login keystore](images/source-auto-login-keystore.png)
+   ![Image showing creation of auto login keystore](images/lab5-t1-s8-c-i.png)
 
    ii. Close the password-based keystore.
 
@@ -280,7 +285,7 @@ In this lab
      ```
    Below is sample output.
 
-   ![Image showing output of password-based keystore close command](images/source-pass-key-close.png)
+   ![Image showing output of password-based keystore close command](images/lab5-t1-s8-c-ii.png)
 
    iii. Query V$ENCRYPTION_WALLET to get the keystore status, keystore type, and keystore location.
 
@@ -296,7 +301,7 @@ In this lab
    In the query output, verify that the TDE keystore STATUS is OPEN and WALLET_TYPE is AUTOLOGIN, otherwise the auto-login keystore is not set up correctly.
      
    Sample output is shown below.
-   ![Image showing auto login keystore status](./images/tde-autologin.png)
+   ![Image showing auto login keystore status](./images/lab5-t1-s8-c-iii.png)
 
    d. Copy the keystore files to the second Oracle RAC node.
 
@@ -332,32 +337,30 @@ In this lab
 
    Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks** as shown below.
 
-   ![Image showing navigation to VCN in OCI ](./images/navigate-vcn.png)
+   ![Image showing navigation to VCN in OCI ](./images/lab5-t1-s9-a-1.png)
 
-   Click on **ZDM-VCN** under the list of Virtual Cloud Network in your compartment as shown below.
+   Select **zdm-vcn** under the list of Virtual Cloud Network in your compartment as shown below.
 
-   ![Image showing list of VCN in OCI ](./images/vcn-list.png)
+   ![Image showing list of VCN in OCI ](./images/lab5-t1-s9-a-2.png)
 
-   Click on **Public Subnet-ZDM-VCN** to navigate to Public Subnet as shown below.
+   Navigate to **Subnets** and select **zdm-vcn-priv**.
 
-   ![Image showing list of subnet in ZDM-VCN ](./images/subnet-list.png)
+   ![Image showing list of subnet in ZDM-VCN ](./images/lab5-t1-s9-a-3.png)
 
-   Click on **Default Security List for ZDM-VCN** as shown below.
+   Navigate to **Security** and select **Default Security List for zdm-vcn** as shown below.
 
-   ![Image showing default security list of Public Subnet ](./images/click-default-sl.png)
+   ![Image showing default security list of Public Subnet ](./images/lab5-t1-s9-a-4.png)
 
-   Click on **Add Ingress Rules** to bring up a window for adding rules as shown below.
+   Navigate to **Security rules** and select **Add Ingress Rules** to bring up a window for adding rules.
 
-   ![Image showing option to add Ingress rules ](./images/click-add-ingress.png)
+   ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-a-5.png)
 
-   Populate the rules as shown below , Please enter the source CIDR same as the Public Subnet CIDR for this lab.
+   Populate the rules as shown below , Please enter the source CIDR same as the private subnet CIDR for this lab.
 
-   ![Image showing option to add Ingress rules ](./images/add-ingress-rule.png)
+   ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-a-6.png)
 
-   Click on **Add Ingress Rules** to add the rule to Security list as shown below.
-
-   ![Image showing option to add Ingress rules ](./images/add-ingress-rule-final.png)
-
+   Select **Add Ingress Rules** to add the rule to Security list.
+   
    You have added necessary rule to allow incoming traffic on 1521.
 
    b. Configure connectivity from source database server to target database server.
