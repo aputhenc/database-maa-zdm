@@ -139,7 +139,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing search bar for Marketplace](./images/lab2-t2-s3.png " ")
 
-4. Click on the listed **Oracle Database** Image.
+4. Scorll down to find the **Oracle Database** image and select it.
 
    ![Image showing Oracle Database Marketplace Image](./images/lab2-t2-s4.png " ")
 
