@@ -371,11 +371,11 @@ In this lab
 
    i. Collet the target database server SCAN name.
 
-   Login to target database server using Public IP and ssh key file.
+   Login to target database server using private IP and ssh key file.
 
    Display the contents of  **/etc/hosts** file as shown below.
 
-   ![Image showing target database server etc-hosts file contents ](./images/target-etc-hosts.png)
+   ![Image showing target database server etc-hosts file contents ](./images/lab5-t1-s9-b-i.png)
 
    Copy the highlighted line related to target database SCAN FQDN and IP.
 
@@ -391,7 +391,7 @@ In this lab
 
    Below is sample contents of **/etc/hosts** file after modification.
 
-   ![Image showing source database server etc-hosts file contents ](./images/source-etc-hosts.png)
+   ![Image showing source database server etc-hosts file contents ](./images/lab5-t1-s9-b-ii.png)
 
    iii. Verify connectivity from source database to target database server.
 
@@ -407,7 +407,7 @@ In this lab
 
    if the command output shows **OK(x msec)** as shown below , it means SQL*Net connectivity is successful from source database to target database server.
 
-   ![Image showing output of tnsping from source to target database server ](./images/source-to-target-tns.png)
+   ![Image showing output of tnsping from source to target database server ](./images/lab5-t1-s9-b-iii.png)
    
    c. Configure connectivity from target database server to source database server.
 
