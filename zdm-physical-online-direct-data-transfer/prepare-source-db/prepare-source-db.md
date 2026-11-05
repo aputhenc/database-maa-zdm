@@ -455,7 +455,7 @@ In this lab
 
    tnsping **source\_host\_name**:1521
 
-   If the command output shows **OK(x msec)** as shown below , it means connectivity is success on the port 1521 from target database server to source database server.
+   If the command output shows **OK(x msec)** as shown below , it means SQL*Net connectivity is successful from target database server to source database server.
 
    ![Image showing output of tnsping from target to source database server ](./images/lab5-t1-s9-c-iii.png)
  
