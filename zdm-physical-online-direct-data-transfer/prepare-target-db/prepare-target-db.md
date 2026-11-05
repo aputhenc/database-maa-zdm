@@ -39,7 +39,7 @@ In this lab
 
    Please find below snippet of the connection steps.
 
-   ![Image showing how to set the database environment](./images/target-cdb-connection.png)
+   ![Image showing how to set the database environment](./images/lab6-t1-s1.png)
 
 2. Establish connection to source database.
 
@@ -61,7 +61,7 @@ In this lab
 
    Please find below snippet of the connection steps.
 
-   ![Image showing sqlplus connection to source cdb](./images/source-cdb-connection.png)
+   ![Image showing sqlplus connection to source cdb](./images/lab6-t1-s2.png)
 
 3. Ensure the target timezone version is same or higher than the source.
 
@@ -81,7 +81,7 @@ In this lab
      </copy>
      ```   
    Sample output is shown below.   
-   ![Image showing timezone version of source database](./images/source-timezone.png)
+   ![Image showing timezone version of source database](./images/lab6-t1-s3-i.png)
 
    ii. Check the timezone of target database server.
 
@@ -93,15 +93,13 @@ In this lab
      </copy>
      ```   
    Sample output is shown below.   
-   ![Image showing timezone version of target database](./images/target-timezone.png)
+   ![Image showing timezone version of target database](./images/lab6-t1-s3-ii.png)
    
    iii. Ensure timezone of target database sever is same or higher than source database.
 
    Compare the values of timezone collected in step i and ii and ensure target timezone is same or higher than source database.
 
-   For e.g
-
-   The source and Target database timezone are 32 in the above sample output, which means no further action is to be taken.
+   Target database timezone is 42 in the above sample output which is higher than the source version of 32 which means no further action is to be taken.
    
    If the target timezone version is lower than the source database, follow the below document to do the timezone upgrade for an Oracle 19c target database.
 
@@ -125,7 +123,7 @@ In this lab
 
    Sample output with SPFILE in use is shown below.
 
-   ![Image showing output of spfile check](./images/spfile.png)
+   ![Image showing output of spfile check](./images/lab6-t1-s4.png)
 
    If SPFILE is not in use, then use the below link to configure SPFILE for your database.
 
@@ -141,7 +139,7 @@ In this lab
 
      ```text
      <copy>
-     set lines 120
+     set lines 200
      col WRL_PARAMETER for a50
      select WRL_TYPE,WRL_PARAMETER,STATUS,WALLET_TYPE from v$encryption_wallet;
      </copy>   
@@ -149,7 +147,7 @@ In this lab
 
    Sample output is shown below.
 
-   ![Image showing TDE status of target database](./images/target-tde-status.png)
+   ![Image showing TDE status of target database](./images/lab6-t1-s5.png)
 
    Verify that the TDE wallet folder(value of WRL\_PARAMETER in the above output) exists, and ensure that the wallet STATUS is OPEN and WALLET\_TYPE is AUTOLOGIN (For an auto-login wallet type), or WALLET\_TYPE is PASSWORD (For a password-based wallet). 
    
@@ -187,7 +185,7 @@ In this lab
 
    Please find sample output of **SHOW ALL** command.
 
-   ![Image showing RMAN SHOW ALL output from target database server](./images/rman-show-all.png)
+   ![Image showing RMAN SHOW ALL output from target database server](./images/lab6-t1-s8.png)
 
 9. Ensure system time of the ZDM service host and source database server are in sync with your Oracle Cloud Infrastructure target.
 
@@ -195,11 +193,11 @@ In this lab
 
    Please find below sample output of **date** command from source , target and zdm service host.
 
-   ![Image showing date output from source database server](./images/source-db-date.png)
+   ![Image showing date output from source database server](./images/lab6-t1-s9-1.png)
 
-   ![Image showing date output from target database server](./images/target-db-date.png)
+   ![Image showing date output from target database server](./images/lab6-t1-s9-2.png)
 
-   ![Image showing date output from zdm service host](./images/zdm-host-date.png)
+   ![Image showing date output from zdm service host](./images/lab6-t1-s9-3.png)
 
    If the time on any of the systems (source and ZDM service host) varies beyond 6 minutes from the time on OCI target database , it should be adjusted. 
    
@@ -215,11 +213,11 @@ In this lab
 
    Below is sample output of the contents of sqlnet.ora from source database server.
 
-   ![Image showing contents of sqlnet.ora from source database server](./images/source-db-sqlnet.png)
+   ![Image showing contents of sqlnet.ora from source database server](./images/lab6-t1-s10-1.png)
 
    Below is sample output of the contents of sqlnet.ora from target database server.
 
-   ![Image showing contents of sqlnet.ora from target database server](./images/target-db-sqlnet.png)
+   ![Image showing contents of sqlnet.ora from target database server](./images/lab6-t1-s10-2.png)
    
 11. For Oracle RAC targets
    
@@ -230,6 +228,6 @@ In this lab
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 

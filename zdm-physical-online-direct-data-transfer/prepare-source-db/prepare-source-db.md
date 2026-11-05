@@ -411,7 +411,7 @@ In this lab
    
    c. Configure connectivity from target database server to source database server.
 
-   i. Remove retrictions on iptbles.
+   i. Remove retriction on firewall.
 
    Login to source database server.
 
