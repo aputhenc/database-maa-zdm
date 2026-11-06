@@ -23,7 +23,7 @@ In this lab
 
    ![Image showing navigation to compute instance](./images/lab4-t1-s1.png)
 
-2. Click on **Create Instance**.
+2. Select **Create Instance**.
 
    ![Image showing option to create compute instance](./images/lab4-t1-s2.png)
 
@@ -77,7 +77,11 @@ In this lab
 
    Primary network: **Select existing virtual cloud network**
 
+   Virtual cloud network compartment: Compartment for **zdm-vcn**
+
    Virtual Cloud Network: **zdm-vcn**
+
+   Subnet compartment: Compartment of subnet **zdm-vcn-priv** (same as the **zdm-vcn** compartment for this lab)
 
    Subnet: **zdm-vcn-priv(regional)**
    
@@ -115,13 +119,17 @@ In this lab
 
 1. Obtain private IP of ZDM host.
 
-   Navigte to the **zdm-host** compute created in previous task to get the private IP.
+   Click the Navigation Menu in the upper left, navigate to Compute and then select Instances.
 
-    ![Image showing private IP for ZDM host ](./images/lab4-t2-s1.png)
+    ![Image showing private IP for ZDM host ](./images/lab4-t2-s1-a.png)
+
+   Make a note of the private ip of **zdm-host**.
+
+    ![Image showing private IP for ZDM host ](./images/lab4-t2-s1-b.png)
 
 2. Login to ZDM host using the private IP and ssh key file.
 
-   Use a command similar to below to access the zdm-host from cloud shell or from a just host which has access to **zdm-vcn**.
+   Use a command similar to below to access the zdm-host from cloud shell or from a host which has access to **zdm-vcn**.
 
     ```text
      <copy>
@@ -129,7 +137,7 @@ In this lab
      </copy>
      ```
 
-3. Perform latest updates.
+3. Perform latest OS updates.
 
    It is recommended to perform update of all available packages.
 
@@ -203,13 +211,13 @@ In this lab
 
    https://www.oracle.com/database/technologies/rac/zdm-downloads.html
 
-7. Upload ZDM software to ZDM host.
+8. Upload ZDM software to ZDM host.
 
    Upload the software(.zip file) to /tmp directory in ZDM host.
 
    Ensure that all users can read the .zip file.
 
-8. Unzip the ZDM software.
+9. Unzip the ZDM software.
 
    Switch user to **zdmuser** using below command.
 
@@ -219,11 +227,11 @@ In this lab
 
    Below is sample output.
 
-     ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s8.png)
+     ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s9.png)
 
    Note down the directory path of unzipped folder , it will be **/tmp/zdm26.x** for **ZDM 26.x** , Please note this is a generic placeholder name for ZDM software and make sure to use the latest version available.
 
-9. Install ZDM software.
+0. Install ZDM software.
 
    Change directory to ZDM software unzipped location using below command.
 
@@ -240,12 +248,12 @@ In this lab
 
      Below is sample output.
      
-      ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s9-a.png)
+      ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s10-a.png)
 
 
      You will see output as below when ZDM service setup has been completed.
 
-     ![Image showing ZDM service setup completion](./images/lab4-t2-s9-b.png)
+     ![Image showing ZDM service setup completion](./images/lab4-t2-s10-b.png)
 
 10. Start ZDM service.
 
