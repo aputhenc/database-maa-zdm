@@ -15,7 +15,7 @@ In this lab
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Provision ZDM Compute Instance
+## Task 1 : Provision ZDM compute instance
 
 1. Navigate to compute instance in OCI Console.
 
@@ -115,7 +115,7 @@ In this lab
 
    In less than a few minutes ZDM compute instance will be provisioned.
 
-## Task 2 : Configure ZDM Service
+## Task 2 : Configure ZDM service
 
 1. Obtain private IP of ZDM host.
 
@@ -281,7 +281,7 @@ In this lab
 
     You have successfuly installed ZDM software , please proceed to next task.
 
-## Task 3 : Configure SSH Connectivity from ZDM Host to Source and Target DB System
+## Task 3 : Configure SSH connectivity from ZDM host to source and target database servers
 
    Please follow the below steps to enable SSH connectivity from ZDM service host to Source and Target DB system.
 
