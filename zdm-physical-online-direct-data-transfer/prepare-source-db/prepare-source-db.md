@@ -330,7 +330,7 @@ In this lab
 
    You have deployed source database , target database and ZDM service host into the same private subnet in **zdm-vcn** for the purpose of this lab.
 
-   You need to ensure that incoming connection on port 1521(or the configured listener port) are not blocked on VCN level.
+   You need to ensure that incoming connections on port 1521(or the configured listener port) are not blocked on VCN level.
 
    Follow below steps to enable incoming connection on 1521 (For simplicity , you will open port for all IPs in the private subnet , however you can restrict as you wish).
 
@@ -354,7 +354,19 @@ In this lab
 
    ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-a-5.png)
 
-   Populate the rules as shown below , Please enter the source CIDR same as the private subnet CIDR for this lab.
+   Populate the rules with below details , please enter the source CIDR same as the private subnet CIDR for this lab.
+
+   Source Type: CIDR
+
+   Source CIDR: 10.20.17.0/25
+
+   IP Protocol: TCP
+
+   Source Port Range: Leave it null.
+
+   Destination Port Range: 1521
+
+   Description: This is optional.
 
    ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-a-6.png)
 
@@ -428,9 +440,9 @@ In this lab
       
    ![Image showing ouput of command used for modifying firewall ](./images/lab5-t1-s9-c-i.png)
 
-   ii. Modify Target database server **/etc/hosts** file.
+   ii. Modify target database server **/etc/hosts** file.
 
-   Login to Target database server.
+   Login to target database server.
 
    Open **/etc/hosts** file for editing by running below command as **opc** user.
    
