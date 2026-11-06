@@ -10,7 +10,7 @@ In this lab
 
 * You will prepare a response file for database migration.
 
-* You will evaluate a database migration.
+* You will perform a database migration evalution.
 
 * You will perform the actual database migration.
 
@@ -22,7 +22,7 @@ In this lab
 
 1. Login to ZDM service host.
 
-   Login to ZDM service host using Public IP and ssh key.
+   Login to ZDM service host using private IP and ssh key.
 
 2. Switch user to **zdmuser**.
 
@@ -55,10 +55,10 @@ In this lab
 
    DATA\_TRANSFER\_MEDIUM - Specifies the media used for source database backup (DIRECT Data Trasfer is used in this lab).
 
-   DM\_RMAN\_DIRECT\_METHOD - specifies the RMAN method (restore from service or active duplicate) to use when 
+   ZDM\_RMAN\_DIRECT\_METHOD - specifies the RMAN method (restore from service or active duplicate) to use when 
    DATA\_TRANSFER\_MEDIUM=DIRECT data transfer method is specified. We are using RESTORE\_FROM\_SERVICE in this lab.
 
-   ZDM\_SRC\_DB\_RESTORE\_SERVICE\_NAME - specifies the fully qualified name of the service on the source database to be used for an online physical migration
+   ZDM\_SRC\_DB\_RESTORE\_SERVICE\_NAME - specifies the fully qualified name of the service on the source database to be used by RMAN.
 
    PLATFORM_TYPE - Specifies the target database platform (VMDB is used for this lab which indicates target platform is Oracle Cloud Infrastructure(OCI) virtual machine or bare metal).
 
@@ -75,7 +75,9 @@ In this lab
    https://docs.oracle.com/en/database/oracle/zero-downtime-migration/index.html
 
    
-## Task 2 : Start Database Migration Evaluation
+## Task 2 : Perform database migration evaluation.
+
+Database migration evaluation allows you to check whether the pre-requisites for the migration is in place. This will not initiate any migration , it will simply perform the checks.
 
 1. Login to ZDM service host.
 
@@ -93,10 +95,12 @@ In this lab
 
    **$ZDM_HOME/bin/zdmservice status**
 
-   If you see similar output as below which shows **Running** as **false**, then the ZDM service is down.
+   Ensure that **Running** shows as **true** as below.
 
-   ![Image showing zdm servive status output](./images/zdm-service-status.png)
+   ![Image showing zdm servive status output](./images/lab7-t1-s2.png)
 
+   If **Running** shows as **false** which means ZDM service is in stopped status and you need to start it. 
+   
    Please use the below command to start the ZDM service.
 
    **$ZDM_HOME/bin/zdmservice start**
@@ -119,11 +123,11 @@ In this lab
 
       This lab is using **zdmauth** which requires below arguments.
 
-      * -srcarg1 user:source\_database\_server\_login\_user_name
+      * -srcarg1 user: User with sudo privileges used for login to source database
 
-      * -srcarg2 identity\_file:ZDM\_installed\_user\_private\_key\_file\_location
+      * -srcarg2 identity\_file: location of private ssh key(in zdm host) of user specified in srcarg1
 
-      * -srcarg3 sudo\_location:sudo\_location
+      * -srcarg3 sudo\_location: location of sudo command
                  
    -targetnode - Host name of the target database server.
 
@@ -133,11 +137,11 @@ In this lab
 
       This lab is using **zdmauth** which requires below arguments.
 
-      * -tgtarg1 user:target\_database\_server\_login\_user_name
+      * -tgtarg1 user: User with sudo privileges used for login to target database
 
-      * -tgtarg2 identity_file:ZDM\_installed\_user\_private\_key\_file\_location 
+      * -tgtarg2 identity_file: location of private ssh key(in zdm host) of user specified in tgtarg1
 
-      * -tgtarg3 sudo_location:sudo\_location
+      * -tgtarg3 sudo_location: location of sudo command
 
     -eval       - Evaluates the migration job without actually running the migration job against the source and target.
 
