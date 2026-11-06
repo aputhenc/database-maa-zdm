@@ -165,11 +165,11 @@ In this lab
 
    Below is a sample output of lsdg (command to check diskgroup details) command which can be used to check the free space of an ASM diskgroup.
 
-   ![Image showing lsdg output from target database server](./images/target-db-lsdg.png)
+   ![Image showing lsdg output from target database server](./images/lab6-t1-s6.png)
 
    Please note that the **Usable\_file\_MB** in the output shows the available space for a specific diskgroup which should be higher than the size of your source database.
   
-7. Check connectivity.
+7. Check SQL*Net connectivity.
 
    This livelab requires below SQL*Net connectivity.
 
@@ -187,7 +187,7 @@ In this lab
 
    ![Image showing RMAN SHOW ALL output from target database server](./images/lab6-t1-s8.png)
 
-9. Ensure system time of the ZDM service host and source database server are in sync with your Oracle Cloud Infrastructure target.
+9. Ensure system time of the ZDM service host and source database server are in sync with your target database in OCI.
 
    Execute **date** command across source , target and ZDM service host simultaneously and see whether they show the same time.
 
