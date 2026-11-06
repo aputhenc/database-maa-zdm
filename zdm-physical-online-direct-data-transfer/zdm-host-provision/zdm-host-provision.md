@@ -347,7 +347,7 @@ In this lab
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Data Modernisation Specialist, EMEA Technology Cloud Engineering
+* **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
 * **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
