@@ -16,7 +16,7 @@ In this lab
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Prepare Source Database
+## Task 1 : Prepare source database
 
 1. Establish connection to source database.
 
@@ -77,7 +77,6 @@ In this lab
   ![Image showing output of compatible parameter check on source](./images/lab5-t1-s3.png)
 
 4. Check the COMPATIBLE parameter on target database.
-
    
   Execute below statement on the target database connection already established using step 2.
 
@@ -335,7 +334,7 @@ In this lab
 
    Follow below steps to enable incoming connection on 1521 (For simplicity , you will open port for all IPs in the private subnet , however you can restrict as you wish).
 
-   Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks** as shown below.
+   Select the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks** as shown below.
 
    ![Image showing navigation to VCN in OCI ](./images/lab5-t1-s9-a-1.png)
 
@@ -345,11 +344,11 @@ In this lab
 
    Navigate to **Subnets** and select **zdm-vcn-priv**.
 
-   ![Image showing list of subnet in ZDM-VCN ](./images/lab5-t1-s9-a-3.png)
+   ![Image showing list of subnets in ZDM-VCN ](./images/lab5-t1-s9-a-3.png)
 
    Navigate to **Security** and select **Default Security List for zdm-vcn** as shown below.
 
-   ![Image showing default security list of Public Subnet ](./images/lab5-t1-s9-a-4.png)
+   ![Image showing default security list of private Subnet ](./images/lab5-t1-s9-a-4.png)
 
    Navigate to **Security rules** and select **Add Ingress Rules** to bring up a window for adding rules.
 
@@ -427,7 +426,7 @@ In this lab
          
    Sample output is shown below.
       
-   ![Image showing option to add Ingress rules ](./images/lab5-t1-s9-c-i.png)
+   ![Image showing ouput of command used for modifying firewall ](./images/lab5-t1-s9-c-i.png)
 
    ii. Modify Target database server **/etc/hosts** file.
 
@@ -441,7 +440,7 @@ In this lab
 
    Below is sample contents of **/etc/hosts** file after modification.
 
-   ![Image showing option contents of target database etc/hosts file ](./images/lab5-t1-s9-c-ii.png)
+   ![Image showing contents of target database etc/hosts file ](./images/lab5-t1-s9-c-ii.png)
 
    iii. Verify connectivity from target database to source database server.
 
@@ -451,7 +450,7 @@ In this lab
 
    **sudo su - oracle**
 
-   Execute below command to check the connectivity on port 1521 (or whichever listener port) to source database server.
+   Execute below command to check the SQL*Net connectivity on port 1521(listner port) to source database server.
 
    tnsping **source\_host\_name**:1521
 
@@ -487,7 +486,7 @@ In this lab
      ```
    Below is sample output.
    
-   ![Image showing output of controlfile autobackup on command](./images/lab5-t1-s10-2.png)
+   ![Image showing output of command used to enable AUTOBACKUP](./images/lab5-t1-s10-2.png)
 
 11. Register database with srvctl.
 
