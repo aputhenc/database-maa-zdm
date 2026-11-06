@@ -327,7 +327,7 @@ In this lab
 
    You will be logged in to the Source DB system if the connectivity is successful as shown below.
 
-   ![Image showing successful ssh connectivity from zdm to source](./images/lab4-t3-s4-a.png)
+   ![Image showing successful ssh connectivity from zdm to source](./images/lab4-t3-s4-i.png)
 
    Enter **exit** to come out of source db server.
 
@@ -341,7 +341,7 @@ In this lab
 
    You will be logged in to the Target DB system if the connectivity is successful as shown below.
 
-   ![Image showing successful ssh connectivity from zdm to target](./images/lab4-t3-s4-b.png)
+   ![Image showing successful ssh connectivity from zdm to target](./images/lab4-t3-s4-ii.png)
 
 
 You may now **proceed to the next lab**.
