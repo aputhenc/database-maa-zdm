@@ -22,7 +22,7 @@ In this lab
 
   Most of the steps in this lab requires a connection to source database.
 
-  Please follow below steps to establish connection to source database using SQLPLUS.
+  Please follow below steps to establish connection to source database using SQL*PLUS.
 
   Login to source database server using private IP and ssh key.
 
@@ -115,7 +115,7 @@ In this lab
 
    Follow the below steps for the source database provisioned using steps not mentioned in this livelab.
 
-   Execute below statement using source database connection (established using step 1) to check whether SPFILE is in use.
+   Execute below statement after connecting to  source database to check whether SPFILE is in use.
 
      ```text
      <copy>
@@ -189,7 +189,7 @@ In this lab
 
    i. Create the keystore.      
      
-   Execute the below command after modifying the keystore location (same as the encryption wallet location provided in step a) and the TDE password.
+   Execute the below command after modifying the keystore location (same as the encryption wallet location provided in step a) and the password.
 
       ```text
       <copy>
@@ -276,7 +276,7 @@ In this lab
 
    ii. Close the password-based keystore.
 
-   Execute the below statement after replacing PASSWORD with your TDE password.
+   Execute the below statement after replacing PASSWORD with your password.
 
      ```text
      <copy>
@@ -329,11 +329,11 @@ In this lab
 
    a. Allow incoming connection on required port in Virtual Cloud Network.
 
-   You have deployed source database , target database and ZDM service host into the same Public subnet in ZDM-VCN for the purpose of this lab.
+   You have deployed source database , target database and ZDM service host into the same private subnet in **zdm-vcn** for the purpose of this lab.
 
    You need to ensure that incoming connection on port 1521(or the configured listener port) are not blocked on VCN level.
 
-   Follow below steps to enable incoming connection on 1521 (For simplicity , you will open port for all IPs in the Public subnet , however you can restrict as you wish).
+   Follow below steps to enable incoming connection on 1521 (For simplicity , you will open port for all IPs in the private subnet , however you can restrict as you wish).
 
    Click the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual Cloud Networks** as shown below.
 
@@ -381,7 +381,7 @@ In this lab
 
    ii. Modify source database server **/etc/hosts** file.
 
-   Login to source database server using Public IP and ssh key file.
+   Login to source database server using private IP and ssh key file.
 
    Open **/etc/hosts** file for editing by running below command as **opc** user.
    
@@ -451,7 +451,7 @@ In this lab
 
    **sudo su - oracle**
 
-   Execute below command to check the connectivity on port 1521 (or whichever listener port )
+   Execute below command to check the connectivity on port 1521 (or whichever listener port) to source database server.
 
    tnsping **source\_host\_name**:1521
 
@@ -476,7 +476,7 @@ In this lab
 
    ![Image showing controlfile autobackup status](./images/lab5-t1-s10-1.png)
 
-   If RMAN is not already configured to automatically back up the control file and SPFILE, then set CONFIGURE CONTROLFILE AUTOBACKUP to ON and revert the setting back to OFF after migration is complete.
+   Proceed with below action is RMAN is not configured for AUTOBACKUP.
     
    Connect to source database using RMAN and execute below query to enable controlfile autobackup.
 
