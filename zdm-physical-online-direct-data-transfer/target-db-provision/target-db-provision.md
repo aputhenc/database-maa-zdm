@@ -2,13 +2,13 @@
 
 ## Introduction
 
-You need create a placeholder target database before the start of the migration to the target environment. 
+Oracle Zero Downtime Migration requires you to create a placeholder target database before the start of the migration to the target environment. 
 
-The placeholder target database gets overwritten during migration, but it retains the overall configuration.
+The placeholder target database gets overwritten with the source database files during migration.
 
 Please note as of Zero Downtime Migration Release 21.3 , only Grid Infrastructure-based database services are supported as targets. For example, an LVM-based instance or an instance created in compute node without Grid Infrastructure are not supported targets.
 
-You should use the control plane for the creation of a target placeholder database on Exadata Database Service on Dedicated Infrastructure and Exadata Cloud at Customer.
+You should use the recommended console/commandline/APIs for creation of a target placeholder database.
 
 Estimated Time: 30 minutes
 
@@ -20,13 +20,13 @@ In this lab
 
 * You will prepare a database software image for the target database.
 
-* You will provision an Oracle Base Database Server System to use as the target database system.
+* You will provision an Oracle Base Database System to use as the target database system.
 
 ### Prerequisites
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Collect Source Database Details
+## Task 1 : Collect source database details
 
 1. Check the Operating System version of the source database.
 
@@ -38,7 +38,7 @@ In this lab
 
    Please follow below steps to establish connection to source database using SQL*PLUS.
 
-   Login to source database compute using private IP and ssh key.
+   Login to source database compute using private IP and ssh key (generated in Lab 1)
 
    Username to login : **opc** 
 
@@ -50,7 +50,7 @@ In this lab
 
    Type **. oraenv** and press **Enter**. 
     
-   Press Enter when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID in case if it is different).
+   Press Enter when asked for **ORACLE\_SID** (Enter your ORACLE\_SID in case if it is different).
 
    Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
 
@@ -115,11 +115,11 @@ In this lab
    Download the Lsinventory output file (location is shown in the output) to local desktop.
 
 
-## Task 2 : Prepare Database Software Image for Target Database
+## Task 2 : Prepare database software image for target database
 
-1. Navigate to Oracle Base Database.
+1. Navigate to Oracle Base Database Service.
 
-   Click the **Navigation Menu** in the upper left, navigate to **Oracle AI Database** and then select **Oracle Base Database Service**.
+   Click the **navigation menu** in the upper left, navigate to **Oracle AI Database** and then select **Oracle Base Database Service**.
 
    ![Image showing navigation to Oracle Base Database](./images/lab3-t2-s1.png)
 
@@ -153,7 +153,7 @@ In this lab
 
    Please wait for the completion of this task before proceeding to the next task.
    
-## Task 3 : Provision Target Database
+## Task 3 : Provision target database
 
 1. Navigate to Oracle Base Database service.
 
@@ -167,21 +167,21 @@ In this lab
 
 3. Make below selections on the **Create DB System** page.
 
-   DB System name: **zdm-target-db** 
+   DB system name: **zdm-target-db** 
    
    Compartment: Ensure you have selected correct compartment for the DB system.
 
    Availability Domain: Leave it to default.
 
-   Oracle Database Software edition: **Enterprise edition**.
+   Oracle Database software edition: **Enterprise edition**.
     
    ![Image showing the updated DB system name](./images/lab3-t3-s3.png)
 
 4. Selecting Shape.
 
-   You can either leave the **Shape** to the default one or modify it based on your requirement.
+   You can either leave the shape to the default one or modify it based on your requirement.
 
-   We have left the **Shape** to default one for this workshop.
+   We have left the shape to the default one for this workshop.
 
    ![Image showing default shape](./images/lab3-t3-s4.png)
 
@@ -219,6 +219,8 @@ In this lab
    Compartment: Compartment of VCN
    
    Virtual Cloud Network: **zdm-vcn**
+
+   Compartment: Compartment of subnet which is same as the compartment for **zdm-vcn** for this lab.
    
    Client Subnet: **zdm-vcn-priv**
 
@@ -244,21 +246,27 @@ In this lab
 
 11. Select Database Image.
 
-    Click on **Change Database Image** and select **Custom Database Software Images** as below.
+    Select  **Change Database Image** to bring up database software image selection screen.
 
     ![Image showing selection of Database Software Image](./images/lab3-t3-s11-a.png)
 
-    Select the appropriate compartment and remove the **Database version 26ai** image filter seen below.
+    Select **Custom Database Software images**.
 
-    ![Image showing custom software images created earlier](./images/lab3-t3-s11-b.png)
+    ![Image showing selection of Database Software Image](./images/lab3-t3-s11-b.png)
+
+    Select the appropriate compartment and remove the **Database version 26ai** image filter shown in red rectangle below.
+
+    ![Image showing 26ai database software images filter](./images/lab3-t3-s11-c.png)
 
     Select the custom image created in task2 as below.
 
-    ![Image showing custom software images created earlier](./images/lab3-t3-s11-c.png)
+    ![Image showing custom software images created earlier](./images/lab3-t3-s11-d.png)
 
-    Below is the window after the selection.
+    Select **Select** to finalise the selection.
 
-     ![Image showing custom software images created earlier](./images/lab3-t3-s11-d.png)
+    Below selection will be reflected in original window.
+
+     ![Image showing custom software images created earlier](./images/lab3-t3-s11-e.png)
 
 12. Provide Administrator credentials.
 
@@ -294,7 +302,7 @@ In this lab
 
 15. Start DB System provisioning.
 
-    Click on the **Create** to initiate the DB system provisioning.
+    Select **Create** to initiate the DB system provisioning.
 
     ![Image showing the option to start the provisioning](./images/lab3-t3-s15.png)
 
