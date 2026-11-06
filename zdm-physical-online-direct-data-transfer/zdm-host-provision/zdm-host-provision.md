@@ -231,7 +231,7 @@ In this lab
 
    Note down the directory path of unzipped folder , it will be **/tmp/zdm26.x** for **ZDM 26.x** , Please note this is a generic placeholder name for ZDM software and make sure to use the latest version available.
 
-0. Install ZDM software.
+10. Install ZDM software.
 
    Change directory to ZDM software unzipped location using below command.
 
@@ -255,7 +255,7 @@ In this lab
 
      ![Image showing ZDM service setup completion](./images/lab4-t2-s10-b.png)
 
-10. Start ZDM service.
+11. Start ZDM service.
 
     Navigate using below command.
 
@@ -269,7 +269,7 @@ In this lab
 
     ![Image showing successful start of ZDM service](./images/lab4-t2-s10.png)
 
-11. Check ZDM service status.
+12. Check ZDM service status.
 
     Execute below command to see the ZDM servive status.
 
