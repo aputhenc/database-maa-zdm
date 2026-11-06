@@ -165,7 +165,7 @@ In this lab
 
 5. Install required packages.
 
-   Execute the below command to installe required packages for ZDM.
+   Execute the below command to install required packages for ZDM.
 
      ```text
      <copy>
@@ -184,7 +184,7 @@ In this lab
      bind-utils
      </copy>
      ```
-     You will receive an output similar to the one below. 
+     You will receive an output(truncated) similar to the one below. 
 
      ![Image showing pre installed packages for ZDM ](./images/lab4-t2-s5.png)
 
@@ -202,7 +202,8 @@ In this lab
      useradd -g zdm zdmuser
      mkdir /home/zdmuser/zdmhome
      mkdir /home/zdmuser/zdmbase
-     chown -R zdmuser:zdm /home/zdmuser
+     chown zdmuser:zdm /home/zdmuser/zdmhome
+     chown zdmuser:zdm /home/zdmuser/zdmbase
      </copy>
      ```
 7. Download ZDM software.
@@ -219,6 +220,8 @@ In this lab
 
 9. Unzip the ZDM software.
 
+   Login to **zdm-host** using private IP key file.
+   
    Switch user to **zdmuser** using below command.
 
    **sudo su - zdmuser**
