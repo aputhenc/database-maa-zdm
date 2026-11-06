@@ -233,11 +233,11 @@ In this lab
 
 10. Install ZDM software.
 
-   Change directory to ZDM software unzipped location using below command.
+    Change directory to ZDM software unzipped location using below command.
 
-   cd /tmp/zdm26.x
+    cd /tmp/zdm26.x
    
-   Execute the below command to install ZDM software.
+    Execute the below command to install ZDM software.
    
      ```text
      <copy>
@@ -248,12 +248,12 @@ In this lab
 
      Below is sample output.
      
-      ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s10-a.png)
+    ![Image showing unzip for ZDM zip file ](./images/lab4-t2-s10-a.png)
 
 
      You will see output as below when ZDM service setup has been completed.
 
-     ![Image showing ZDM service setup completion](./images/lab4-t2-s10-b.png)
+    ![Image showing ZDM service setup completion](./images/lab4-t2-s10-b.png)
 
 11. Start ZDM service.
 
@@ -267,7 +267,7 @@ In this lab
 
     Below is sample output.
 
-    ![Image showing successful start of ZDM service](./images/lab4-t2-s10.png)
+    ![Image showing successful start of ZDM service](./images/lab4-t2-s11.png)
 
 12. Check ZDM service status.
 
@@ -277,7 +277,7 @@ In this lab
 
     Sample output is given below.
 
-    ![Image showing ZDM service status](./images/lab4-t2-s11.png)
+    ![Image showing ZDM service status](./images/lab4-t2-s12.png)
 
     You have successfuly installed ZDM software , please proceed to next task.
 
