@@ -17,13 +17,13 @@ In this lab
 
 * All previous labs have been successfully completed.
 
-## Task 1 : Prepare Target Database
+## Task 1 : Prepare target database
 
 1. Establish connection to target database.
    
    Please follow below steps to establish connection to target database using SQLPLUS.
 
-   Login to target database server using Public IP and ssh key.
+   Login to target database server using private IP and ssh key.
 
    Switch user to **oracle** using below command.
 
@@ -33,7 +33,7 @@ In this lab
 
    Type **. oraenv** and press **Enter**.
 
-   Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID if that is different from ORCL).
+   Press **Enter** when asked for **ORACLE\_SID** (Enter your ORACLE\_SID if that is different from ORCL).
 
    Type **sqlplus "/as sysdba"** and press **Enter** to connect to target database as SYS user.
 
@@ -55,7 +55,7 @@ In this lab
 
    Type **. oraenv** and press **Enter**. 
     
-   Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID if that is different from ORCL).
+   Press **Enter** when asked for **ORACLE\_SID** (Enter your ORACLE\_SID if that is different from ORCL).
 
    Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
 
@@ -63,7 +63,7 @@ In this lab
 
    ![Image showing sqlplus connection to source cdb](./images/lab6-t1-s2.png)
 
-3. Ensure the target timezone version is same or higher than the source.
+3. Ensure the target database timezone version is same or higher than the source database.
 
    Please ensure that the target placeholder database has a time zone file version that is the same or higher than the source database. 
    
@@ -129,7 +129,7 @@ In this lab
 
    https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-1C90AAE6-1E89-47B9-B218-C2B0ED659B60
 
-5. Verify TDE Wallet folder exists.
+5. Verify TDE wallet status.
 
    Please ignore this step if you have provisioned the target database as per the instructions in this lab.
 
@@ -149,7 +149,7 @@ In this lab
 
    ![Image showing TDE status of target database](./images/lab6-t1-s5.png)
 
-   Verify that the TDE wallet folder(value of WRL\_PARAMETER in the above output) exists, and ensure that the wallet STATUS is OPEN and WALLET\_TYPE is AUTOLOGIN (For an auto-login wallet type), or WALLET\_TYPE is PASSWORD (For a password-based wallet). 
+   Ensure that the wallet STATUS is OPEN and WALLET\_TYPE is either AUTOLOGIN (For an auto-login wallet type), or WALLET\_TYPE is PASSWORD (For a password-based wallet). 
    
    For a multitenant database, ensure that the wallet is open on all PDBs as well as the CDB, and the master key is set for all PDBs and the CDB.
 
