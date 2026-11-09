@@ -111,7 +111,15 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
     ```text
     <copy>
-    $ZDM_HOME/bin/zdmcli migrate database -sourcesid ORCL -sourcenode zdm-source-db -srcauth zdmauth -srcarg1 user:opc -srcarg2 identity_file:/home/zdmuser/mykey.key -srcarg3 sudo_location:/bin/sudo -targetnode zdm-target-db -rsp /home/zdmuser/physical_online.rsp -tgtauth zdmauth -tgtarg1 user:opc -tgtarg2 identity_file:/home/zdmuser/mykey.key -tgtarg3 sudo_location:/usr/bin/sudo -eval
+    $ZDM_HOME/bin/zdmcli migrate database \
+    -sourcesid ORCL \
+    -sourcenode zdm-source-db \
+    -srcauth zdmauth -srcarg1 user:opc -srcarg2 identity_file:/home/zdmuser/mykey.key -srcarg3 sudo_location:/bin/sudo \
+    -targetnode zdm-target-db \
+    -rsp /home/zdmuser/physical_online.rsp \
+    -tgtauth zdmauth -tgtarg1 user:opc -tgtarg2 identity_file:/home/zdmuser/mykey.key -tgtarg3 sudo_location:/usr/bin/sudo \
+    -ignoremissingpatches <JDK bundle patch number of source> \
+    -eval
     </copy>
     ```
   
@@ -142,7 +150,9 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
       * -tgtarg2 identity_file: location of private ssh key(in zdm host) of user specified in tgtarg1
 
-      * -tgtarg3 sudo_location: location of sudo command
+      * -tgtarg3 sudo_location: location of sudo 
+      
+    -ignoremissingpatches - We are using this parameter so that ZDM will not complain about not having same JDK bundle patch as source database in target home . Target already has the required JDK bundle patch. Please note that you don't have to use this parameter when source and target database version are same and also you had created target DB with required one-offs which are applied to source database.
 
     -eval       - Evaluates the migration job without actually running the migration job against the source and target.
 
@@ -154,7 +164,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    Please proceed with the migration evaluation once you have the command given in step 3 updated for your environment.
 
-   ![Image showing execution of migration evaluation command](./images/mig-eval-start.png)
+   ![Image showing execution of migration evaluation command](./images/lab7-t2-s4.png)
 
    Please provide the SYS password of source database when asked.
 
@@ -164,17 +174,17 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    Check the status of database migration evaluation using below command.
 
-   **$ZDM_HOME/bin/zdmcli query job -jobid 24**
+   **$ZDM_HOME/bin/zdmcli query job -jobid 5**
 
-   Here 24 is the jobid.
+   Here 5 is the jobid.
 
    You will receive a similar ouput as below.
 
-   ![Image showing intermediate status of migration evaluation](./images/mig-eval-status.png)
+   ![Image showing intermediate status of migration evaluation](./images/lab7-t2-s5-a.png)
 
    Continue to execute the status command until all phases have been completed with status **PRECHECK_PASSED** as shown below.
 
-   ![Image showing final status of migration evaluation](./images/mig-eval-final.png)
+   ![Image showing final status of migration evaluation](./images/lab7-t2-s5-b.png)
 
 ## Task 3 : Start Database Migration
 
