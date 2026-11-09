@@ -123,7 +123,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
       This lab is using **zdmauth** which requires below arguments.
 
-      * -srcarg1 user: User with sudo privileges used for login to source database
+      * -srcarg1 user: User with sudo privileges used for login to source database.
 
       * -srcarg2 identity\_file: location of private ssh key(in zdm host) of user specified in srcarg1
 
