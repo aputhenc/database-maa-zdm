@@ -143,9 +143,9 @@ In this lab
 
    Database version: 19c (same as the major version of your source database).
 
-   Database Version Release Update: **19.33.0.0.0** ( Please ensure that you are selecting a version which is same or higher version than source database).
+   Database Version Release Update: **19.32.0.0.0** ( Please ensure that you are selecting a version which is same or higher version than source database).
 
-   Upload Oracle Home patch inventory output generated in earlier step (Task 1 step 6).
+   one-off patches : Specify the one-off patches applicable on the target database home. You can leave it null for this Lab since there are no specific one-off patches applied on source database.
 
    ![Image showing database version selected for Image ](./images/lab3-t2-s4.png)
 
