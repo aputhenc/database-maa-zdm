@@ -212,7 +212,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
    
    Login to container database (CDB) using sqlplus as shown below.
    
-   ![Image showing connection to CDB using sqlplus](./images/source-cdb-connection.png)   
+   ![Image showing connection to CDB using sqlplus](./images/lab7-t3-s1-b.png)   
     
    c. Switch to pluggable database ORCLPDB.
    
@@ -258,51 +258,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    ![Image showing output of select statement from source database](./images/source-select.png)
 
-2. Verify **HR01.EMP** table in target database.
-
-   There is no HR01.EMP table in target database , However let's verify it.
-
-   a. Connect to target database server.
-
-   Connect to target database server using Public IP and ssh key.
-
-   b. Login to target container database.
-
-   Switch user to **oracle** using below command.
-
-   **sudo su - oracle**
-
-   Set the environment to connect to your database.
-
-   Type **. oraenv** and press **Enter**. 
-    
-   Enter **ORCL** when asked for **ORACLE\_SID** and then press **Enter** (Enter your ORACLE\_SID if that is different).
-
-   Login to container database(CDB) using sqlplus as shown below.
-   
-   ![Image showing connection to CDB using sqlplus](./images/target-cdb-connection.png)
-   
-   c. Switch to pluggable database ORCL_PDB1.
-
-   Switch to pluggable database ORCL_PDB1 using below command. 
-   
-   **alter session set container=ORCL_PDB1;**
-
-   d. Verify existence of HR01.EMP table.
-
-   Execute the below command in pluggable database.
-
-     ```text
-     <copy>
-     select * from hr01.emp;
-     </copy>
-     ```
-
-   You will receive an output similar to the one below indicating that HR01.EMP table doesn't exist in target database which is expected.
-
-   ![Image showing select statement output from target before migration](./images/target-select-before-migration.png)
-
-3. Start the database migration
+2. Start the database migration
 
    You are now good to start the database migration.
 
@@ -320,11 +276,21 @@ Database migration evaluation allows you to check whether the pre-requisites for
    
    c. Initiate database migration.
 
-   Execute below command to start the database migration.
+   Execute below command to start the database migration and pause it after ZDM_CONFIGURE_DG_SRC phase.
+
+   Typical workflow for ZDM physical online migration is to initiate the miration and pause it after ZDM_CONFIGURE_DG_SRC phase which allows you to set up Data Guard between source and target database using ZDM.
 
      ```text
      <copy>
-     $ZDM_HOME/bin/zdmcli migrate database -sourcesid ORCL -sourcenode zdm-source-db  -srcauth zdmauth -srcarg1 user:opc  -srcarg2 identity_file:/home/zdmuser/mykey.key -srcarg3 sudo_location:/bin/sudo -targetnode zdm-target-db -rsp /home/zdmuser/physical_online.rsp -tgtauth zdmauth -tgtarg1 user:opc  -tgtarg2 identity_file:/home/zdmuser/mykey.key -tgtarg3 sudo_location:/usr/bin/sudo
+    $ZDM_HOME/bin/zdmcli migrate database \
+    -sourcesid ORCL \
+    -sourcenode zdm-source-db \
+    -srcauth zdmauth -srcarg1 user:opc -srcarg2 identity_file:/home/zdmuser/mykey.key -srcarg3 sudo_location:/bin/sudo \
+    -targetnode zdm-target-db \
+    -rsp /home/zdmuser/physical_online.rsp \
+    -tgtauth zdmauth -tgtarg1 user:opc -tgtarg2 identity_file:/home/zdmuser/mykey.key -tgtarg3 sudo_location:/usr/bin/sudo \
+    -ignoremissingpatches <JDK bundle patch number of source> \
+    -pauseafter ZDM_CONFIGURE_DG_SRC
      </copy>
      ```
    Please provide the SYS password of source database when asked.
