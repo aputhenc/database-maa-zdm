@@ -168,13 +168,13 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    Please provide the SYS password of source database when asked.
 
-   Also note down the migration job ID which is 24 in this case.
+   Also note down the migration job ID which is **6** in this case.
 
 5. Monitor the database migration evaluation.
 
    Check the status of database migration evaluation using below command.
 
-   **$ZDM_HOME/bin/zdmcli query job -jobid 5**
+   **$ZDM_HOME/bin/zdmcli query job -jobid 6**
 
    Here 5 is the jobid.
 
