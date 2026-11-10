@@ -20,51 +20,51 @@ In this lab
 
 1. Establish connection to source database.
 
-  Most of the steps in this lab requires a connection to source database.
+   Most of the steps in this lab requires a connection to source database.
 
-  Please follow below steps to establish connection to source database using SQL*PLUS.
+   Please follow below steps to establish connection to source database using SQL*PLUS.
 
-  Login to source database server using private IP and ssh key.
+   Login to source database server using private IP and ssh key.
 
-  Switch user to **oracle** using below command.
+   Switch user to **oracle** using below command.
 
-  **sudo su - oracle**
+   **sudo su - oracle**
 
-  Set the environment to connect to your database.
+   Set the environment to connect to your database.
 
-  Type **. oraenv** and press **Enter**. 
+   Type **. oraenv** and press **Enter**. 
     
-  Press **Enter** when asked for **ORACLE\_SID**.
+   Press **Enter** when asked for **ORACLE\_SID**.
 
-  Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
+   Type **sqlplus "/as sysdba"**  and press **Enter** to connect to source database as SYS user.
 
-  Please find below snippet of the connection steps.
+   Please find below snippet of the connection steps.
 
-  ![Image showing sqlplus connection to source cdb](./images/lab5-t1-s1.png)
+   ![Image showing sqlplus connection to source cdb](./images/lab5-t1-s1.png)
 
 2. Establish connection to target database.
 
-  Login to target database server using private IP and ssh key.
+   Login to target database server using private IP and ssh key.
 
-  Switch user to **oracle** using below command.
+   Switch user to **oracle** using below command.
 
-  **sudo su - oracle**
+   **sudo su - oracle**
 
-  Set the environment to connect to your database.
+   Set the environment to connect to your database.
 
-  Type **. oraenv** and press **Enter**. 
+   Type **. oraenv** and press **Enter**. 
     
-  Press Enter when asked for **ORACLE\_SID**.
+   Press Enter when asked for **ORACLE\_SID**.
 
-  Type **sqlplus "/as sysdba"**  and press **Enter** to connect to target database as SYS user.
+   Type **sqlplus "/as sysdba"**  and press **Enter** to connect to target database as SYS user.
 
-  Please find below snippet of the connection steps.
+   Please find below snippet of the connection steps.
 
-  ![Image showing sqlplus connection to target cdb](./images/lab5-t1-s2.png)
+   ![Image showing sqlplus connection to target cdb](./images/lab5-t1-s2.png)
 
 3. Check the COMPATIBLE parameter on source database.
 
-  Execute below statement on the source database connection already established using step 1.
+   Execute below statement on the source database connection already established using step 1.
 
     ```text
     <copy>
@@ -72,13 +72,13 @@ In this lab
     </copy>
     ```
 
-  Below is the sample output.
+   Below is the sample output.
 
-  ![Image showing output of compatible parameter check on source](./images/lab5-t1-s3.png)
+   ![Image showing output of compatible parameter check on source](./images/lab5-t1-s3.png)
 
 4. Check the COMPATIBLE parameter on target database.
    
-  Execute below statement on the target database connection already established using step 2.
+   Execute below statement on the target database connection already established using step 2.
 
     ```text
     <copy>
@@ -86,9 +86,9 @@ In this lab
     </copy>
     ```
    
-  Below is the sample output.
+   Below is the sample output.
 
-  ![Image showing output of compatible parameter check on target](./images/lab5-t1-s4.png)
+   ![Image showing output of compatible parameter check on target](./images/lab5-t1-s4.png)
 
 5. Ensure COMPATIBLE parameter on source and target database is set to same value.
 

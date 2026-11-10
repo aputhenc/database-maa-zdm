@@ -151,6 +151,8 @@ In this lab
 
    Select **Create** to proceed with image creation.
 
+   You may get a new screen asking you to confirm the risk of going with database version which is N-1 where N is the latest RU.
+
    Please wait for the completion of this task before proceeding to the next task.
    
 ## Task 3 : Provision target database
