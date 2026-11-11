@@ -81,7 +81,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
 1. Login to ZDM service host.
 
-   Login to ZDM service host using Public IP and private key file.
+   Login to ZDM service host using private IP and private key file.
 
    Switch user to **zdmuser** using below command.
 
@@ -216,13 +216,15 @@ Database migration evaluation allows you to check whether the pre-requisites for
     
    c. Switch to pluggable database ORCLPDB.
    
-   Execute below command to switch the session from container database to pluggable database.
+   Execute below commands to check the available PDBs and switch the session from container database to pluggable database.
+
+   **show pdbs**
 
    **alter session set container=ORCLPDB;**
 
    You will see similar output as shown below.
 
-   ![Image showing switching the connection to pdb](./images/pdb-connection.png)
+   ![Image showing switching the connection to pdb](./images/lab7-t3-s1-c.png)
 
    d. Create user and table.
     
@@ -242,9 +244,9 @@ Database migration evaluation allows you to check whether the pre-requisites for
    
    You will receive below output.
 
-   ![Image showing HR01 table creation ouput](./images/hr01-table-creation.png)
+   ![Image showing HR01 table creation ouput](./images/lab7-t3-s1-d.png)
 
-   d. Verify the data in HR01.EMP table.
+   e. Verify the data in HR01.EMP table.
 
    Execute below statement when you are in ORCLPDB.
    
@@ -256,7 +258,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    You will receive the below output which shows that there are 2 rows in HR01.EMP table.
 
-   ![Image showing output of select statement from source database](./images/source-select.png)
+   ![Image showing output of select statement from source database](./images/lab7-t3-s1-e.png)
 
 2. Start the database migration
 
@@ -278,7 +280,7 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    Execute below command to start the database migration and pause it after ZDM_CONFIGURE_DG_SRC phase.
 
-   Typical workflow for ZDM physical online migration is to initiate the miration and pause it after ZDM_CONFIGURE_DG_SRC phase which allows you to set up Data Guard between source and target database using ZDM.
+   Typical workflow for ZDM physical online migration is to initiate the miration and pause it after ZDM_CONFIGURE_DG_SRC phase. This allows you to build a Data Guard between source and target database while keeping the source database available for business.
 
      ```text
      <copy>
@@ -297,23 +299,47 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    You will receive an output similar to below one.
 
-   ![Image showing the command to start database migration](./images/migration-start.png)
+   ![Image showing the command to start database migration](./images/lab7-t3-s2-c.png)
 
    Please note down the migration job ID which is 25 in this case.
    
    d. Monitor the database migration using below command.
 
-   **$ZDM_HOME/bin/zdmcli query job -jobid 25**
+   **$ZDM_HOME/bin/zdmcli query job -jobid 10**
 
    You will get an output similar to below.
 
-   ![Image showing interim migration status](./images/migration-status.png)
+   ![Image showing interim migration status](./images/lab7-t3-s2-d.png)
 
    You will see the **JOB\_TYPE** is **MIGRATE** which is different from **JOB\_TYPE** (EVAL) for the database migration evaluation.
       
-   Continue to monitor the status until all phases have been completed with **COMPLETED** status as shown below.
+   Continue to monitor the status until all phases until **ZDM_DG_CONFIGURE_SRC** have been completed with **COMPLETED** status as shown below.
 
-   ![Image showing final status of migration](./images/migration-final.png)
+   ![Image showing final status of migration](./images/lab7-t3-s2-d-2.png)
+
+   ZDM job will be paused at this stage as expected.
+
+   You can contiue with next steps when you have decided to complete the migration which includes database switchover.
+
+3. Complete the database migration.
+
+   You need to resume the ZDM job paused earlier to complete the databse migration.
+
+   Resume the job using below command.
+
+   ```text
+     <copy>
+    $ZDM_HOME/bin/zdmcli resume job -jobid 10
+    </copy>
+     ```
+
+   Continue to monitor the job using below command until all the phases have been completed.
+
+    **$ZDM_HOME/bin/zdmcli query job -jobid 10**
+
+   Below is final status after all phases have been completed.
+
+   ![Image showing final status of migration](./images/lab7-t3-s3.png)
 
 4. Verify the database migration.
 
@@ -339,15 +365,26 @@ Database migration evaluation allows you to check whether the pre-requisites for
 
    Login to container database(CDB) using sqlplus as shown below.
    
-   ![Image showing connection to CDB using sqlplus](./images/target-cdb-connection.png)
+   ![Image showing connection to CDB using sqlplus](./images/lab7-t3-s4-b.png)
+
+   c. Verify the database role.
+
+      Execute below statements.
+      **show parameter db_unique**
+      **select name,database_role from v$database;**
+
+      Below is sample output.
+     
+     ![Image showing connection to CDB using sqlplus](./images/lab7-t3-s4-c.png)
+
    
-   c. Switch to pluggable database ORCLPDB.
+   d. Switch to pluggable database ORCLPDB.
 
    Switch to pluggable database ORCLPDB using below command. 
    
    **alter session set container=ORCLPDB;**
 
-   d. Check for number of rows in HR01.EMP table.
+   e. Check for number of rows in HR01.EMP table.
 
    Execute below SQL query.
 
@@ -358,14 +395,14 @@ Database migration evaluation allows you to check whether the pre-requisites for
      ```
    If you receive similar output as below which means database migration has been successfully completed.
    
-   ![Image showing select output from target after migration](./images/target-select-after-migration.png)
+   ![Image showing select output from target after migration](./images/lab7-t3-s4-e.png)
 
 
 Congrats, you have completed ZDM Physical Online Migration Live Lab.
 
 ## Acknowledgements
-* **Author** - Amalraj Puthenchira, Cloud Data Management Modernise Specialist, EMEA Technology Cloud Engineering
-* **Last Updated By/Date** - Amalraj Puthenchira, April 2023
+* **Author** - Amalraj Puthenchira, Data Modernisation Black Belt, EMEA Technology Cloud Engineering
+* **Last Updated By/Date** - Amalraj Puthenchira, November 2026
 
 
 
