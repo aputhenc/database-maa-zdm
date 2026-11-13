@@ -22,13 +22,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
 1. Login to your Oracle Cloud Console.
 
-2. Create Virtual Cloud Network.
+2. Create a Virtual Cloud Network.
 
    Select the **Navigation Menu** in the upper left, navigate to **Networking** and then select **Virtual cloud networks**.
    
    ![Image showing navigation to VCN](./images/lab2-t1-s2-a.png " ")
  
-   On the new window (as seen below) select **Create VCN** to bring up **Create a Virtual Cloud Network** window.
+   On the new window (as seen below) , select **Create VCN** to bring up **Create a Virtual Cloud Network** window.
 
    ![Image showing Create VCN option](./images/lab2-t1-s2-b.png " ")
 
@@ -53,13 +53,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Name: **zdm-vcn-priv**
 
-   Create in Compartment: Same compartment as **zdm-vcn** VCN.
+   Create in Compartment: Same compartment as **zdm-vcn**(VCN).
 
    Subnet Type: Regional
 
    IP Type: **IPv4 CIDR block**
 
-   IPv4 CIDR Block: **10.20.17.0/24**
+   IPv4 CIDR Block: **10.20.17.0/25**
 
    Route Table Compartment: Same compartment as **zdm-vcn** VCN
 
@@ -135,7 +135,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing navigation to Marketplace](./images/lab2-t2-s2.png " ")
 
-3. Type **Oracle Database** in search bar and press Enter.
+3. Type **Oracle Database** in search bar and select **Search**
 
    ![Image showing search bar for Marketplace](./images/lab2-t2-s3.png " ")
 
@@ -143,7 +143,7 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing Oracle Database Marketplace Image](./images/lab2-t2-s4.png " ")
 
-5. Click on Launch Instance.
+5. Select Launch Instance.
   
    ![Image showing Oracle Database Marketplace image with Launch Instance option](./images/lab2-t2-s5.png " ")
 
@@ -157,9 +157,13 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    Please make a note of the exact DB version with Release Update since it will be required in next Lab.
 
-   Ensure to select the correct compartment in your tenancy , accept the agreement  and then click on **Launch Instance**.
+   Ensure to select the correct compartment in your tenancy , accept the agreement  and then select **Launch Instance**.
 
-7. On the **Create compute instance** page , update **Name** as **zdm-source-db**.
+7. Provide below details on the **Create compute instance** page.
+   
+   Name: **zdm-source-db**
+
+   Create in compartment: compartment of your choice.
 
    ![Image showing Compute instance basic information](./images/lab2-t2-s7-a.png)
 
@@ -175,7 +179,19 @@ In this task you will create a new Virtual Cloud Network , create a private subn
 
    ![Image showing security configuration](./images/lab2-t2-s8.png " ")
 
-9. On the Networking page , select the VCN and subnet created earlier in the lab.
+9. Make below selections on the **Networking** page 
+
+   Primary network: Select existing virtual cloud network
+   
+   Virtual Cloud network compartment: select compartment of ***zdm-vcn**
+
+   Virtual cloud network: **zdm-vcn**
+
+   Subnet: select existing subnet
+
+   Subnet compartment: select compartment of **zdm-vcn-priv**
+
+   Subnet: **zdm-vcn-priv**
 
    ![Image showing Network configuration](./images/lab2-t2-s9-a.png " ")
 
