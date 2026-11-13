@@ -8,7 +8,7 @@ The placeholder target database gets overwritten with the source database files 
 
 Please note as of Zero Downtime Migration Release 21.3 , only Grid Infrastructure-based database services are supported as targets. For example, an LVM-based instance or an instance created in compute node without Grid Infrastructure are not supported targets.
 
-You should use the recommended console/commandline/APIs for creation of a target placeholder database.
+You should use the recommended console/command line/APIs for creation of a target placeholder database.
 
 Estimated Time: 30 minutes
 
@@ -28,17 +28,17 @@ In this lab
 
 ## Task 1 : Collect source database details
 
-1. Check the Operating System version of the source database.
+1. Check the operating system version of the source database.
 
    For this lab you have deployed source database on Oracle Linux 8.
 
-   You can use this lab with your source database as well , however ensure that the Operating System is Linux.
+   You can use this lab with your specific source database as well , however ensure that the operating system is Linux.
 
 2. Establish connection to source database.
 
-   Please follow below steps to establish connection to source database using SQL*PLUS.
+   Please follow below steps to establish connection to source database deployed in previous lab.
 
-   Login to source database compute using private IP and ssh key (generated in Lab 1)
+   Login to source database compute using private IP(refer lab 2) and ssh key (generated in Lab 1)
 
    Username to login : **opc** 
 
@@ -64,7 +64,7 @@ In this lab
 
    In case you would like know the database edition for your on-premises database then refer the below steps.
 
-   Execute the below query after connecting to source database using connection established in step 2.
+   Execute the below query after connecting to source database.
 
     ```console
     <copy>
@@ -88,7 +88,7 @@ In this lab
     </copy>
     ```
    
-   In the query output **NLS\_CHARACTERSET** is the database characterset and **NLS\_NCHAR\_CHARACTERSET** is the national characterset.
+   In the query output ,  **NLS\_CHARACTERSET** is the database characterset and **NLS\_NCHAR\_CHARACTERSET** is the national characterset.
 
    Sample output is shown below.
 
@@ -131,7 +131,7 @@ In this lab
 
 3. Make below selections on the **Create software image** page.
 
-   Image Type: **Database Software image**
+   Image Type: **Database software image**
 
    Display name: **DBImage-19c**
 
@@ -145,13 +145,13 @@ In this lab
 
    Database Version Release Update: **19.32.0.0.0** ( Please ensure that you are selecting a version which is same or higher version than source database).
 
-   one-off patches : Specify the one-off patches applicable on the target database home. You can leave it null for this Lab since there are no specific one-off patches applied on source database.
+   one-off patches : Specify the one-off patches applicable on the target database home. You can leave it null for this Lab since there are no specific one-off patches applied on source database. Alternatively , you can also upload the patch inventory from source database , you don't need to do this for this lab.
 
    ![Image showing database version selected for Image ](./images/lab3-t2-s4.png)
 
    Select **Create** to proceed with image creation.
 
-   You may get a new screen asking you to confirm the risk of going with database version which is N-1 where N is the latest RU.
+   You may get a new screen asking you to confirm the risk of selecting a database version which is N-1 where N is the latest RU.
 
    Please wait for the completion of this task before proceeding to the next task.
    
@@ -167,7 +167,7 @@ In this lab
     
    ![Image showing Create DB system option](./images/lab3-t3-s2.png)
 
-3. Make below selections on the **Create DB System** page.
+3. Make below selections on the **Create DB System** window.
 
    DB system name: **zdm-target-db** 
    
@@ -216,15 +216,15 @@ In this lab
 
     ![Image showing selectio of license type](./images/lab3-t3-s8.png)
 
-9. Specify below for the network information.
+9. Specify below for the **Network Information**.
 
-   Compartment: Compartment of VCN
+   Compartment: Compartment of **zdm-vcn**
    
-   Virtual Cloud Network: **zdm-vcn**
+   Virtual cloud network: **zdm-vcn**
 
-   Compartment: Compartment of subnet which is same as the compartment for **zdm-vcn** for this lab.
+   Compartment: Compartment of **zdm-vcn-priv** subnet
    
-   Client Subnet: **zdm-vcn-priv**
+   Client subnet: **zdm-vcn-priv**
 
    Hostname prefix: **zdm-target-db**
 
@@ -256,7 +256,7 @@ In this lab
 
     ![Image showing selection of Database Software Image](./images/lab3-t3-s11-b.png)
 
-    Select the appropriate compartment and remove the **Database version 26ai** image filter shown in red rectangle below.
+    Select the compartment of the software image create in task 2 and remove the **Database version 26ai** image filter shown in red rectangle below.
 
     ![Image showing 26ai database software images filter](./images/lab3-t3-s11-c.png)
 
@@ -272,7 +272,7 @@ In this lab
 
 12. Provide Administrator credentials.
 
-    Enter SYS password which is same as the SYS password of the source database.
+    Enter **sys** user password which is same as the **sys** password of the source database.
 
      ![Image showing the provision to enter SYS password](./images/lab3-t3-s12.png)
 
@@ -292,7 +292,7 @@ In this lab
 
     Ensure that you have selected same database and national characterset as the source database.
 
-    In this lab source database has below Database and National Characterset.
+    In this lab source database has below database and national characterset.
 
     Database Characterset : AL32UTF8
 
@@ -308,7 +308,7 @@ In this lab
 
     ![Image showing the option to start the provisioning](./images/lab3-t3-s15.png)
 
-    This step is going to take up to 1 hour , however you can proceed to next lab while DB System is being provisioned.
+    This step may take up to 1 hour , however you can proceed to next lab while DB System is being provisioned.
 
 You may now **proceed to the next lab**.
 
