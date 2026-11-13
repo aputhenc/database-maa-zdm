@@ -220,7 +220,7 @@ In this lab
 
 9. Unzip the ZDM software.
 
-   Login to **zdm-host** using private IP key file.
+   Login to **zdm-host** using private IP and key file.
    
    Switch user to **zdmuser** using below command.
 
@@ -286,9 +286,9 @@ In this lab
 
 ## Task 3 : Configure SSH connectivity from ZDM host to source and target database servers
 
-   Please follow the below steps to enable SSH connectivity from ZDM service host to Source and Target DB system.
+   Please follow the below steps to enable SSH connectivity from ZDM service host to source and target DB system.
 
-1. Allow incoming connection on port 22 for Source and Target database subnet.
+1. Allow incoming connection on port 22 for source and target database subnet.
 
    You have deployed source database , target database and ZDM service host into the same private subnet for the purpose of this lab.
 
@@ -298,9 +298,9 @@ In this lab
 
    However, you may need to take care of opening port 22 if your source and target deployment is different compared to the one specified in this lab.
 
-2. Enable Source and Target hostname resolution from ZDM service host.
+2. Enable source and target database system hostname resolution from ZDM service host.
 
-   ZDM requires to host name resolution for source and target database servers.
+   ZDM requires hostname resolution for source and target database servers.
 
    This is typically accomplished by adding the respective hostname and IP address of source and target to the **/etc/hosts** file of ZDM service host.
 
@@ -318,7 +318,7 @@ In this lab
 
    chmod 600 **key\_file\_name**
 
-4. Verify SSH connectivity from ZDM servive host to Source and Target DB system.
+4. Verify SSH connectivity from ZDM servive host to source and target DB system.
 
    i. Execute the below command to test the ssh connectivity from ZDM service host to source database system.
 
@@ -328,13 +328,13 @@ In this lab
    
    **Are you sure you want to continue connecting?**
 
-   You will be logged in to the Source DB system if the connectivity is successful as shown below.
+   You will be logged in to the source DB system if the connectivity is successful as shown below.
 
    ![Image showing successful ssh connectivity from zdm to source](./images/lab4-t3-s4-i.png)
 
    Enter **exit** to come out of source db server.
 
-   ii. Execute the below command to test the ssh connectivity from ZDM service host to Target database system.
+   ii. Execute the below command to test the ssh connectivity from ZDM service host to target database system.
 
    **ssh -i key\_file\_name opc@zdm-target-db**
 
@@ -342,7 +342,7 @@ In this lab
    
    **Are you sure you want to continue connecting?**
 
-   You will be logged in to the Target DB system if the connectivity is successful as shown below.
+   You will be logged in to the target DB system if the connectivity is successful as shown below.
 
    ![Image showing successful ssh connectivity from zdm to target](./images/lab4-t3-s4-ii.png)
 
